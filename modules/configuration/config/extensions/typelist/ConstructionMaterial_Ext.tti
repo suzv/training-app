@@ -1,15 +1,18 @@
 <?xml version="1.0"?>
 <typelist xmlns="http://guidewire.com/typelists" name="ConstructionMaterial_Ext" desc="">
   <typecode
-    code="Wood"
-    name="Wood"
+    code="Cemento"
+    name="Cemento"
     priority="10"/>
   <typecode
-    code="Brick"
-    name="Brick"
+    code="Ladrillo"
+    name="Ladrillo"
     priority="20"/>
   <typecode
-    code="Cement"
-    name="Cement"
-    priority="30"/>
+    code="Madera"
+    name="Madera"
+    priority="15"/>
+  <typecode
+    code="Vulcanita"
+    name="Vulcanita"/>
 </typelist>

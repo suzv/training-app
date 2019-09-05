@@ -1,15 +1,21 @@
 <?xml version="1.0"?>
 <typelist xmlns="http://guidewire.com/typelists" name="RoofType_Ext" desc="">
   <typecode
-    code="Plain"
-    name="Plain Roof"
+    code="Pizarreno"
+    name="Pizarreño"
     priority="10"/>
   <typecode
-    code="Elevated"
-    name="Elevated"
+    code="Fibrocemento"
+    name="Fibrocemento"
     priority="20"/>
   <typecode
-    code="Other"
-    name="Other"
+    code="Termoplastico"
+    name="Termoplástico"
     priority="30"/>
+  <typecode
+    code="Policarbonato"
+    name="Policarbonato"/>
+  <typecode
+    code="Madera"
+    name="Madera"/>
 </typelist>
