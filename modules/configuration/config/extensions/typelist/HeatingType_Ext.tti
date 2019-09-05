@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<typelist xmlns="http://guidewire.com/typelists" name="HeatingType_Ext" desc="">
+  <typecode
+    code="Internal"
+    name="Internal"/>
+  <typecode
+    code="External"
+    name="External"/>
+  <typecode
+    code="Other"
+    name="Other"/>
+</typelist>

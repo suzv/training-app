@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<typelist xmlns="http://guidewire.com/typelists" name="RoofType_Ext" desc="">
+  <typecode
+    code="Plain"
+    name="Plain Roof"
+    priority="10"/>
+  <typecode
+    code="Elevated"
+    name="Elevated"
+    priority="20"/>
+  <typecode
+    code="Other"
+    name="Other"
+    priority="30"/>
+</typelist>

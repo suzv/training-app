@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<typelist xmlns="http://guidewire.com/typelists" name="ConstructionMaterial_Ext" desc="">
+  <typecode
+    code="Wood"
+    name="Wood"
+    priority="10"/>
+  <typecode
+    code="Brick"
+    name="Brick"
+    priority="20"/>
+  <typecode
+    code="Cement"
+    name="Cement"
+    priority="30"/>
+</typelist>
