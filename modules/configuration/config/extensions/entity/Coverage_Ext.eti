@@ -44,12 +44,8 @@
     name="flooding"
     nullok="true"
     type="bit"/>
-  <typekey
-    name="Coveragetypekey"
-    nullok="true"
-    typelist="Coverages"/>
-  <typekey
-    name="Coverage2"
-    nullok="true"
-    typelist="Coverages2"/>
+  <foreignkey
+    fkentity="Policy_Ext"
+    name="Poliza"
+    nullok="true"/>
 </entity>

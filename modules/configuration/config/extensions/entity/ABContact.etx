@@ -240,7 +240,8 @@
     name="Nacionalidad"
     nullok="true"
     typelist="Nacionalidad"/>
-  <array
-    arrayentity="Coverable_Ext"
-    name="Coverables"/>
+  <onetoone
+    fkentity="Policy_Ext"
+    name="Poliza"
+    nullok="true"/>
 </extension>
