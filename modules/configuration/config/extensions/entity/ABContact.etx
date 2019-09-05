@@ -240,4 +240,7 @@
     name="Nacionalidad"
     nullok="true"
     typelist="Nacionalidad"/>
+  <array
+    arrayentity="Coverable_Ext"
+    name="Coverables"/>
 </extension>

@@ -74,4 +74,8 @@
     name="OccupationType"
     nullok="true"
     typelist="OccupationType_Ext"/>
+  <foreignkey
+    fkentity="ABContact"
+    name="AbContact"
+    nullok="true"/>
 </entity>
