@@ -7,49 +7,115 @@
   <column
     name="DamageAgainstOthers"
     nullok="true"
-    type="bit"/>
+    type="decimal">
+    <columnParam
+      name="precision"
+      value="1"/>
+    <columnParam
+      name="scale"
+      value="0"/>
+  </column>
   <column
     name="Crushes"
     nullok="true"
-    type="bit"/>
+    type="decimal">
+    <columnParam
+      name="precision"
+      value="3"/>
+    <columnParam
+      name="scale"
+      value="2"/>
+  </column>
   <column
     name="Accidents"
     nullok="true"
-    type="bit"/>
+    type="decimal">
+    <columnParam
+      name="precision"
+      value="3"/>
+    <columnParam
+      name="scale"
+      value="2"/>
+  </column>
   <column
     name="WinterTires"
     nullok="true"
-    type="bit"/>
+    type="decimal">
+    <columnParam
+      name="precision"
+      value="3"/>
+    <columnParam
+      name="scale"
+      value="2"/>
+  </column>
   <column
     name="ElectricalSystems"
     nullok="true"
-    type="bit"/>
+    type="decimal">
+    <columnParam
+      name="precision"
+      value="1"/>
+    <columnParam
+      name="scale"
+      value="0"/>
+  </column>
   <column
     name="Base"
     nullok="true"
-    type="bit"/>
+    type="decimal">
+    <columnParam
+      name="precision"
+      value="3"/>
+    <columnParam
+      name="scale"
+      value="2"/>
+  </column>
   <column
     name="PersonalBelongings"
     nullok="true"
-    type="bit"/>
+    type="decimal">
+    <columnParam
+      name="precision"
+      value="3"/>
+    <columnParam
+      name="scale"
+      value="2"/>
+  </column>
   <column
     name="Earthquakes"
     nullok="true"
-    type="bit"/>
+    type="decimal">
+    <columnParam
+      name="precision"
+      value="1"/>
+    <columnParam
+      name="scale"
+      value="0"/>
+  </column>
   <column
     name="Fires"
     nullok="true"
-    type="bit"/>
+    type="decimal">
+    <columnParam
+      name="precision"
+      value="3"/>
+    <columnParam
+      name="scale"
+      value="2"/>
+  </column>
   <column
     name="flooding"
     nullok="true"
-    type="bit"/>
-  <typekey
-    name="Coveragetypekey"
-    nullok="true"
-    typelist="Coverages"/>
-  <typekey
-    name="Coverage2"
-    nullok="true"
-    typelist="Coverages2"/>
+    type="decimal">
+    <columnParam
+      name="precision"
+      value="3"/>
+    <columnParam
+      name="scale"
+      value="2"/>
+  </column>
+  <foreignkey
+    fkentity="Policy_Ext"
+    name="Poliza"
+    nullok="true"/>
 </entity>
