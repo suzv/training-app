@@ -243,5 +243,9 @@
   <onetoone
     fkentity="Policy_Ext"
     name="Poliza"
-    nullok="true"/>
+    nullok="true"></onetoone>
+  <column
+    name="CreditScore"
+    nullok="true"
+    type="integer"/>
 </extension>

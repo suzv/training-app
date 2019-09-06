@@ -39,6 +39,12 @@
         required="true"
         value="anABContact.RUT"
         visible="if(anABContact.Nacionalidad == Nacionalidad.TC_EXTRANJERO){return true}else{return false}"/>
+      <TextInput
+        id="CreditScore"
+        label="DisplayKey.get(&quot;Training.CreditScore&quot;)"
+        value="acmelab.ta.webservice.contact.CreditScoreWS.setContactCreditScore(anABContact.RUT)"
+        valueType="java.lang.Integer"
+        visible="true"/>
       <InputDivider/>
       <TextInput
         editable="true"
