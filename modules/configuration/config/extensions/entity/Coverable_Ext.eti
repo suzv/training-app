@@ -74,4 +74,8 @@
     name="OccupationType"
     nullok="true"
     typelist="OccupationType_Ext"/>
+  <column
+    name="CoverableCost"
+    nullok="true"
+    type="integer"/>
 </entity>

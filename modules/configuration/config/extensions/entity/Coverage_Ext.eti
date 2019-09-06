@@ -7,14 +7,7 @@
   <column
     name="DamageAgainstOthers"
     nullok="true"
-    type="decimal">
-    <columnParam
-      name="precision"
-      value="1"/>
-    <columnParam
-      name="scale"
-      value="0"/>
-  </column>
+    type="integer"></column>
   <column
     name="Crushes"
     nullok="true"
@@ -51,14 +44,7 @@
   <column
     name="ElectricalSystems"
     nullok="true"
-    type="decimal">
-    <columnParam
-      name="precision"
-      value="1"/>
-    <columnParam
-      name="scale"
-      value="0"/>
-  </column>
+    type="integer"></column>
   <column
     name="Base"
     nullok="true"
@@ -84,14 +70,7 @@
   <column
     name="Earthquakes"
     nullok="true"
-    type="decimal">
-    <columnParam
-      name="precision"
-      value="1"/>
-    <columnParam
-      name="scale"
-      value="0"/>
-  </column>
+    type="integer"></column>
   <column
     name="Fires"
     nullok="true"
