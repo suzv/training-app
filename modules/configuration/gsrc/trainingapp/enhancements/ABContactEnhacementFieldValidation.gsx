@@ -25,7 +25,8 @@ enhancement ABContactEnhacementFieldValidation: ABContact {
   }
 
   function isUnderAge(age: Date): Boolean{
-    if(age.DaysSince < 6570) return true
+    //  age.DaysSince < 6570
+    if(age.daysBetween(Date.CurrentDate) > 6570)return false
     else return true
   }
 }
