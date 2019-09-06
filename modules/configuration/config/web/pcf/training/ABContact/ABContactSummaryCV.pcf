@@ -58,24 +58,12 @@
         <InputColumn>
           <Label
             label="&quot;Car Coverages&quot;"/>
-          <RangeInput
-            editable="true"
-            id="AutoRangeID"
-            value="anCoverage.Coveragetypekey"
-            valueRange="typekey.Coverages.AllTypeKeys"
-            valueType="typekey.Coverages"/>
         </InputColumn>
       </DetailViewPanel>
       <DetailViewPanel>
         <InputColumn>
           <Label
             label="&quot;Dwelling Coverages&quot;"/>
-          <RangeInput
-            editable="true"
-            id="DwellingRangeID"
-            value="anCoverage.Coverage2"
-            valueRange="typekey.Coverages2.AllTypeKeys"
-            valueType="typekey.Coverages2"/>
         </InputColumn>
       </DetailViewPanel>
     </Card>

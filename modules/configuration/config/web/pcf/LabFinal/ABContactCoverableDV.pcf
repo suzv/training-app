@@ -38,13 +38,6 @@
       <InputDivider/>
       <TextInput
         editable="true"
-        id="CoverableAdquisitionCost"
-        label="&quot;Adquisition Cost&quot;"
-        value="anABContact.Coverable.ReplacementCost"
-        valueType="java.math.BigDecimal"
-        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
-      <TextInput
-        editable="true"
         id="CoverableAutoLicensePlate"
         label="&quot;License Plate&quot;"
         value="anABContact.Coverable.LicensePlate"
