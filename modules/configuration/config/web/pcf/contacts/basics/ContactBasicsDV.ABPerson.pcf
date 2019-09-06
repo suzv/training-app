@@ -29,6 +29,16 @@
         visible="contact.CreateStatus != ContactCreationApprovalStatus.TC_APPROVED"/>
       <Label
         label="contact.getSubtype().DisplayName"/>
+      <ABContactInput
+        editable="true"
+        forceContactSubtype="entity.ABPerson"
+        id="Guardian"
+        label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo.Guardian&quot;)"
+        newContactMenu="NewPersonOnlyPickerMenuItemSet"
+        parentContact="contact"
+        value="(contact as ABPerson).Guardian"
+        valueType="entity.ABPerson"
+        visible="false"/>
       <InputSetRef
         def="GlobalPersonNameInputSet(new gw.api.name.ContactNameOwner(new gw.api.name.ABPersonNameDelegate(contact as ABPerson)))"
         mode="gw.api.name.NameLocaleSettings.PCFMode"
@@ -226,16 +236,6 @@
           label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo.MaritalStatus&quot;)"
           value="(contact as ABPerson).MaritalStatus"
           valueType="typekey.MaritalStatus"
-          visible="false"/>
-        <ABContactInput
-          editable="true"
-          forceContactSubtype="entity.ABPerson"
-          id="Guardian"
-          label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo.Guardian&quot;)"
-          newContactMenu="NewPersonOnlyPickerMenuItemSet"
-          parentContact="contact"
-          value="(contact as ABPerson).Guardian"
-          valueType="entity.ABPerson"
           visible="false"/>
         <InputDivider/>
         <Label

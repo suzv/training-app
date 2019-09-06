@@ -45,13 +45,56 @@
           required="true"
           value="contact.RUT"
           visible="true"/>
+        <TextInput
+          editable="true"
+          id="ContactEmail"
+          label="&quot;Email&quot;"
+          required="true"
+          value="contact.EmailAddress1"
+          visible="true"/>
+        <TypeKeyInput
+          editable="true"
+          id="CountrySelected"
+          label="DisplayKey.get(&quot;Contact.Pais&quot;)"
+          required="true"
+          value="contact.CountrySel"
+          valueType="typekey.Country"
+          visible="true">
+          <PostOnChange
+            target="ContactRegion"/>
+        </TypeKeyInput>
+        <TypeKeyInput
+          editable="true"
+          id="ContactRegion"
+          label="DisplayKey.get(&quot;Contact.Region&quot;)"
+          required="true"
+          value="contact.Region"
+          valueType="typekey.Regions_Ext"
+          visible="if(contact.CountrySel == Country.TC_CL){return true}else{return false}"></TypeKeyInput>
+        <TextInput
+          editable="true"
+          id="ContactDireccion"
+          label="DisplayKey.get(&quot;Contact.Address&quot;)"
+          required="true"
+          value="contact.Direccion"
+          visible="if(contact.CountrySel == null){return false}else{return true}"/>
+        <TextInput
+          editable="true"
+          id="ContactCodigoPostal"
+          label="DisplayKey.get(&quot;Contact.PostalCode&quot;)"
+          regex="&quot;[0-9]{7}&quot;"
+          required="true"
+          value="contact.CodigoPostal"
+          visible="if(contact.CountrySel == null){return false}else{return true}">
+          <PostOnChange/>
+        </TextInput>
         <PrivacyInput
           editable="true"
-          encryptionExpression="(contact as ABCompany).maskTaxId(VALUE)"
           id="EIN"
           label="DisplayKey.get(&quot;Web.ContactDetail.Name.TaxID.EIN&quot;)"
+          required="false"
           value="(contact as ABCompany).TaxID"
-          visible="false"/>
+          visible="true"/>
       </InputSet>
       <TypeKeyInput
         editable="true"
@@ -72,7 +115,8 @@
         visible="false"/>
       <InputDivider/>
       <InputSetRef
-        def="PrimaryAddressInputSet(contact as ABCompany)"/>
+        def="PrimaryAddressInputSet(contact as ABCompany)"
+        visible="false"/>
       <InputDivider
         visible="hasCategoryScores or (contact.Score != null)"/>
       <Label
