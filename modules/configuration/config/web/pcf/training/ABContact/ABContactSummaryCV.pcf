@@ -15,6 +15,9 @@
       initialValue="anCoverage"
       name="anCoverage"
       type="Coverage_Ext"/>
+    <Variable
+      name="anPolicy"
+      type="Policy_Ext"/>
     <Card
       id="Basics"
       title="DisplayKey.get(&quot;Web.ContactDetail.PageLinks.Basics&quot;)">
@@ -52,18 +55,115 @@
         def="ABContactCoverableDV(anABContact)"/>
     </Card>
     <Card
-      id="Coveragesid"
-      title="&quot;Coverages&quot;">
+      id="PolizaID"
+      title="&quot;Polizas&quot;">
       <DetailViewPanel>
         <InputColumn>
-          <Label
-            label="&quot;Car Coverages&quot;"/>
+          <TextInput
+            editable="true"
+            id="PolicyNumber"
+            label="&quot;N&#250;mero de Poliza&quot;"
+            value="anABContact.Poliza.Numero"
+            valueType="java.lang.Integer"
+            visible="true"/>
+          <DateInput
+            editable="true "
+            id="EffectiveDAtePolicy"
+            label="&quot;Fecha Efectiva&quot;"
+            value="anABContact.Poliza.FechaEfectiva"/>
+          <TypeKeyInput
+            editable="false  "
+            id="CoverableTypeID2"
+            label="&quot;Coverable Type&quot;"
+            value="anABContact.Coverable.TypeCoverable"
+            valueType="typekey.CoverableType"
+            visible="true">
+            <PostOnChange/>
+          </TypeKeyInput>
         </InputColumn>
       </DetailViewPanel>
       <DetailViewPanel>
         <InputColumn>
           <Label
-            label="&quot;Dwelling Coverages&quot;"/>
+            label="&quot;Coberturas Para Auto&quot;"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            editable="true "
+            id="DamageAgainstOthersID"
+            label="&quot;Da&#241;os a Terceros&quot;"
+            value="anCoverage.TestValue "
+            valueType="java.lang.Boolean "
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            editable="true "
+            id="CrushesID"
+            label="&quot;Choques&quot;"
+            value="anCoverage.TestValue"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            editable="true "
+            id="AccidentsID"
+            label="&quot;Accidentes&quot;"
+            value="anCoverage.TestValue"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            editable="true "
+            id="WinterTiresID"
+            label="&quot;LLantas de Invierno&quot;"
+            value="anCoverage.TestValue "
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            editable="true "
+            id="ElectricalSystemsID"
+            label="&quot;Sistemas El&#233;ctricos&quot;"
+            value="anCoverage.TestValue"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <Label/>
+        </InputColumn>
+        <InputColumn>
+          <Label
+            label="&quot;Coberturas Para Propiedades&quot;"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            editable="true "
+            id="BaseID"
+            label="&quot;Base&quot;"
+            value="anCoverage.TestValue"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            editable="true "
+            id="PersonalBelongingsID"
+            label="&quot;Bienes Personales&quot;"
+            value="anCoverage.TestValue"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            editable="true "
+            id="EarthquakesID"
+            label="&quot;Terremotos&quot;"
+            value="anCoverage.TestValue"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            editable="true "
+            id="FiresID"
+            label="&quot;Incendios&quot;"
+            value="anCoverage.TestValue"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            editable="true "
+            id="FloodingID"
+            label="&quot;Innundaciones&quot;"
+            value="anCoverage.TestValue"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+        </InputColumn>
+      </DetailViewPanel>
+      <DetailViewPanel>
+        <InputColumn>
+          <TextInput
+            editable="true "
+            id="PrimaID"
+            label="&quot;Prima&quot;"
+            value="anABContact.Poliza.Prima"
+            valueType="java.lang.Integer"/>
         </InputColumn>
       </DetailViewPanel>
     </Card>
