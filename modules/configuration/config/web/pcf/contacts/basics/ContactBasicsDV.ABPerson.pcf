@@ -58,6 +58,7 @@
         id="ContactRut"
         label="&quot;RUT&quot;"
         required="true"
+        validationExpression="if (acmelab.ta.webservice.contact.RutValidation.validate(contact.RUT)) {if (contact.isDuplicate(contact.RUT) == false){return null} else {return &quot;El RUT ingresado ya existe.&quot;} } else return &quot;El RUT no es valido.&quot;"
         value="contact.RUT"
         visible="if(contact.Nacionalidad == Nacionalidad.TC_CHILE){return true}else{return false}"/>
       <TextInput
