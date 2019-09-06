@@ -15,9 +15,6 @@
       initialValue="anCoverage"
       name="anCoverage"
       type="Coverage_Ext"/>
-    <Variable
-      name="anPolicy"
-      type="Policy_Ext"/>
     <Card
       id="Basics"
       title="DisplayKey.get(&quot;Web.ContactDetail.PageLinks.Basics&quot;)">
@@ -34,7 +31,8 @@
     </Card>
     <Card
       id="SocialMedia"
-      title="DisplayKey.get(&quot;Training.SocialMedia&quot;)">
+      title="DisplayKey.get(&quot;Training.SocialMedia&quot;)"
+      __disabled="true">
       <DetailViewPanel>
         <InputColumn>
           <Label
@@ -44,7 +42,8 @@
     </Card>
     <Card
       id="AnalysisCard"
-      title="DisplayKey.get(&quot;Training.Analysis&quot;)">
+      title="DisplayKey.get(&quot;Training.Analysis&quot;)"
+      __disabled="true">
       <PanelRef
         def="ABContactAnalysisDV(anABContact)"/>
     </Card>
@@ -164,6 +163,23 @@
             label="&quot;Prima&quot;"
             value="anABContact.Poliza.Prima"
             valueType="java.lang.Integer"/>
+        </InputColumn>
+      </DetailViewPanel>
+    </Card>
+    <Card
+      id="Coveragesid"
+      title="DisplayKey.get(&quot;Proyecto.Coverages&quot;)"
+      __disabled="true">
+      <DetailViewPanel>
+        <InputColumn>
+          <Label
+            label="&quot;Car Coverages&quot;"/>
+        </InputColumn>
+      </DetailViewPanel>
+      <DetailViewPanel>
+        <InputColumn>
+          <Label
+            label="&quot;Dwelling Coverages&quot;"/>
         </InputColumn>
       </DetailViewPanel>
     </Card>

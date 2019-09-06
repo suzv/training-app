@@ -12,20 +12,45 @@
       <Label
         label="DisplayKey.get(&quot;Contact.BasicInformation&quot;)"/>
       <TextInput
+        id="Tipo"
+        label="DisplayKey.get(&quot;Contact.Tipo&quot;)"
+        value="anABContact.Subtype.toString()"/>
+      <TextInput
         id="Name"
         label="DisplayKey.get(&quot;Contact.Name&quot;)"
         value="anABContact.DisplayName"/>
+      <TextInput
+        editable="true"
+        id="NameC"
+        label="DisplayKey.get(&quot;Training.Name&quot;)"
+        required="true"
+        value="(anABContact as ABCompany).Name"
+        visible="if(InEditMode &amp;&amp; anABContact typeis ABCompany){return true}else{return false}"/>
+      <TextInput
+        editable="true"
+        id="FirstName"
+        label="DisplayKey.get(&quot;Training.FirstName&quot;)"
+        required="true"
+        value="(anABContact as ABPerson).FirstName"
+        visible="if(InEditMode &amp;&amp; anABContact typeis ABPerson){return true}else{return false}"/>
+      <TextInput
+        editable="true"
+        id="LastName"
+        label="DisplayKey.get(&quot;Training.LastName&quot;)"
+        required="true"
+        value="(anABContact as ABPerson).LastName"
+        visible="if(InEditMode &amp;&amp; anABContact typeis ABPerson){return true}else{return false}"/>
       <TypeKeyRadioInput
         editable="true"
         id="ContactNacionalidad"
         label="DisplayKey.get(&quot;Contact.Nacionality&quot;)"
         required="true"
         value="anABContact.Nacionalidad"
-        valueType="typekey.Nacionalidad">
+        valueType="typekey.Nacionalidad"
+        visible="if(anABContact typeis ABCompany){return false}else{return true}">
         <PostOnChange/>
       </TypeKeyRadioInput>
       <TextInput
-        editable="false "
         id="Rut"
         label="&quot;RUT&quot;"
         required="true"
@@ -33,18 +58,12 @@
         value="anABContact.RUT"
         visible="if(anABContact.Nacionalidad == Nacionalidad.TC_CHILE){return true}else{return false}"/>
       <TextInput
-        editable="false "
+        editable="true"
         id="ContactPassport"
         label="DisplayKey.get(&quot;Contact.Passport&quot;)"
         required="true"
         value="anABContact.RUT"
-        visible="if(anABContact.Nacionalidad == Nacionalidad.TC_EXTRANJERO){return true}else{return false}"/>
-      <TextInput
-        id="CreditScore"
-        label="DisplayKey.get(&quot;Training.CreditScore&quot;)"
-        value="acmelab.ta.webservice.contact.CreditScoreWS.setContactCreditScore(anABContact.RUT)"
-        valueType="java.lang.Integer"
-        visible="true"/>
+        visible="if(anABContact typeis ABCompany){return false}else{if(anABContact typeis ABPerson){if (anABContact.Nacionalidad == Nacionalidad.TC_EXTRANJERO){return true}else{return false}}return true}"/>
       <InputDivider/>
       <TextInput
         editable="true"
@@ -107,9 +126,15 @@
         id="DateOfBirth"
         label="DisplayKey.get(&quot;Contact.DateOfBirth&quot;)"
         required="true"
-        validationExpression="if (anABContact.isUnderAge((anABContact as ABPerson).DateOfBirth )) return true else return null"
+        validationExpression="if (anABContact.isUnderAge((anABContact as ABPerson).DateOfBirth )) return &quot;No cumple con la mayor&#237;a de edad&quot; else return null"
         value="(anABContact as ABPerson).DateOfBirth"
         visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
+      <TypeKeyInput
+        editable="true"
+        id="Gender"
+        label="DisplayKey.get(&quot;Training.Gender&quot;)"
+        value="(anABContact as ABPerson).Gender"
+        valueType="typekey.GenderType"/>
       <DateInput
         id="CreateTime"
         label="DisplayKey.get(&quot;Training.CreatedOn&quot;)"
@@ -133,6 +158,12 @@
         visible="false"/>
     </InputColumn>
     <InputColumn>
+      <TextInput
+        id="CreditScore"
+        label="DisplayKey.get(&quot;Training.CreditScore&quot;)"
+        value="acmelab.ta.webservice.contact.CreditScoreWS.setContactCreditScore(anABContact.RUT)"
+        valueType="java.lang.Integer"
+        visible="true"/>
       <ListViewInput
         boldLabel="true"
         def="FlagEntriesLV(anABContact)"

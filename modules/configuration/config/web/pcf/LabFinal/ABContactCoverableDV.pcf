@@ -22,14 +22,14 @@
         visible="false"/>
       <TextInput
         id="ContactName"
-        label="&quot;Contact Name&quot;"
+        label="DisplayKey.get(&quot;Contact.Name&quot;)"
         value="anABContact.DisplayName"
         valueType="java.lang.String"
         visible="true"/>
       <TypeKeyInput
         editable="true"
         id="CoverableType"
-        label="&quot;Coverable Type&quot;"
+        label="DisplayKey.get(&quot;Contact.CoverableType&quot;)"
         value="anABContact.Coverable.TypeCoverable"
         valueType="typekey.CoverableType"
         visible="true">
@@ -39,38 +39,38 @@
       <TextInput
         editable="true"
         id="CoverableAutoLicensePlate"
-        label="&quot;License Plate&quot;"
+        label="DisplayKey.get(&quot;Contact.LicensePlate&quot;)"
         value="anABContact.Coverable.LicensePlate"
         visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
       <TextInput
         editable="true"
         id="CoverableAutoBrand"
-        label="&quot;Brand&quot;"
+        label="DisplayKey.get(&quot;Contact.Brand&quot;)"
         value="anABContact.Coverable.Brand"
         visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
       <TextInput
         editable="true"
         id="CoverableAutoModel"
-        label="&quot;Model&quot;"
+        label="DisplayKey.get(&quot;Contact.Model&quot;)"
         value="anABContact.Coverable.Model"
         visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
       <TextInput
         editable="true"
         id="CoverableAutoYear"
-        label="&quot;Year&quot;"
+        label="DisplayKey.get(&quot;Contact.Year&quot;)"
         value="anABContact.Coverable.Year"
         valueType="java.lang.Integer"
         visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
       <BooleanRadioInput
         editable="true"
         id="CoverableAutoWinterTires"
-        label="&quot;Winter Tires&quot;"
+        label="DisplayKey.get(&quot;Contact.WinterTires&quot;)"
         value="anABContact.Coverable.WinterTires"
         visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
       <TextInput
         editable="true"
         id="CoverableAutoColor"
-        label="&quot;Color&quot;"
+        label="DisplayKey.get(&quot;Contact.Color&quot;)"
         value="anABContact.Coverable.Color"
         visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
       <InputDivider
@@ -78,7 +78,7 @@
       <TypeKeyInput
         editable="true"
         id="CoverableDwellingRoof"
-        label="&quot;Roof Type&quot;"
+        label="DisplayKey.get(&quot;Contact.RoofType&quot;)"
         value="anABContact.Coverable.RoofType"
         valueType="typekey.RoofType_Ext"
         visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
@@ -87,7 +87,7 @@
       <TypeKeyInput
         editable="true"
         id="CoverableDwellingHeating"
-        label="&quot;Heating Type&quot;"
+        label="DisplayKey.get(&quot;Contact.HeatingType&quot;)"
         value="anABContact.Coverable.HeatingType"
         valueType="typekey.HeatingType_Ext"
         visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
@@ -96,7 +96,7 @@
       <TypeKeyInput
         editable="true"
         id="CoverableDwellingConstructionMaterial"
-        label="&quot;Construction Material&quot;"
+        label="DisplayKey.get(&quot;Contact.ConstructionMaterial&quot;)"
         value="anABContact.Coverable.ConstructionMaterial"
         valueType="typekey.ConstructionMaterial_Ext"
         visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
@@ -105,7 +105,7 @@
       <TypeKeyInput
         editable="true"
         id="CoverableDwellingOcupationType"
-        label="&quot;Occupation Type&quot;"
+        label="DisplayKey.get(&quot;Contact.OccupationType&quot;)"
         value="anABContact.Coverable.OccupationType"
         valueType="typekey.OccupationType_Ext"
         visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
@@ -114,7 +114,7 @@
       <TextInput
         editable="true"
         id="CoverableDwellingMeters"
-        label="&quot;Meters&quot;"
+        label="DisplayKey.get(&quot;Contact.Meters&quot;)"
         value="anABContact.Coverable.Meters"
         valueType="java.lang.Integer"
         visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>

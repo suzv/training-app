@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<typelist xmlns="http://guidewire.com/typelists" name="Regions_Ext" desc="">
+  <typecode
+    code="regionXV"
+    name="Región Arica y Parinacota"
+    priority="10"></typecode>
+  <typecode
+    code="regionI"
+    name="Región Tarapacá"
+    priority="20"/>
+  <typecode
+    code="regionII"
+    name="Región Antofagasta"
+    priority="30"/>
+  <typecode
+    code="regionIII"
+    name="Región Atacama"
+    priority="40"/>
+  <typecode
+    code="regionIV"
+    name="Región Coquimbo"
+    priority="50"/>
+  <typecode
+    code="regionV"
+    name="Región Valparaíso"
+    priority="60"/>
+  <typecode
+    code="regionVI"
+    name="Región del Libertador Bernardo O'Higgins"
+    priority="70"/>
+  <typecode
+    code="regionVII"
+    name="Región del Maule"
+    priority="80"/>
+  <typecode
+    code="regionVIII"
+    name="Región del Bio-Bio"
+    priority="90"/>
+  <typecode
+    code="regionIX"
+    name="Región de la Araucanía"
+    priority="100"/>
+  <typecode
+    code="regionXIV"
+    name="Región de los Ríos"
+    priority="110"/>
+  <typecode
+    code="regionX"
+    name="Región de los Lagos"
+    priority="120"/>
+  <typecode
+    code="regionXI"
+    name="Región de Aysén del Gral. Carlos Ibañez del Campo"
+    priority="130"/>
+  <typecode
+    code="regionXII"
+    name="Región Magallanes y la Antártica Chilena"
+    priority="140"/>
+  <typecode
+    code="regionMetropolitana"
+    name="Región Metropolitana"
+    priority="150"/>
+</typelist>

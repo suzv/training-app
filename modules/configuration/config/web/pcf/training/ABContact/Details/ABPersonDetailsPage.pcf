@@ -20,7 +20,8 @@
         <Card
           id="PersonInfoCard"
           title="DisplayKey.get(&quot;Training.PersonInfoCard&quot;)"
-          visible="anABContact typeis ABPerson">
+          visible="anABContact typeis ABPerson"
+          __disabled="true">
           <PanelRef
             def="ABContactDetailsPersonDV(anABContact)">
             <Toolbar/>
@@ -28,14 +29,16 @@
         </Card>
         <Card
           id="PhoneAddressesCard"
-          title="DisplayKey.get(&quot;Training.PhoneAddressesCard&quot;)">
+          title="DisplayKey.get(&quot;Training.PhoneAddressesCard&quot;)"
+          __disabled="true">
           <PanelRef
             def="PhoneAndAddressesDV(anABContact)"
             mode="anABContact.Subtype"/>
         </Card>
         <Card
           id="BankAccountsCard"
-          title="DisplayKey.get(&quot;Training.BankAccounts&quot;)">
+          title="DisplayKey.get(&quot;Training.BankAccounts&quot;)"
+          __disabled="true">
           <PanelRef
             def="BankAccountsLV(anABContact)">
             <Toolbar>
@@ -55,7 +58,8 @@
         <Card
           id="FinancialSummaryCard"
           title="DisplayKey.get(&quot;Training.FinancialSummary&quot;)"
-          visible="(anABContact typeis ABPolicyPerson) or (anABContact typeis ABPolicyCompany)">
+          visible="(anABContact typeis ABPolicyPerson) or (anABContact typeis ABPolicyCompany)"
+          __disabled="true">
           <DetailViewPanel>
             <InputColumn>
               <Label
@@ -105,7 +109,8 @@
         <Card
           id="VendorInfoCard"
           title="DisplayKey.get(&quot;Training.VendorInfoCard&quot;)"
-          visible="(anABContact typeis ABPersonVendor) or (anABContact typeis ABCompanyVendor)">
+          visible="(anABContact typeis ABPersonVendor) or (anABContact typeis ABCompanyVendor)"
+          __disabled="true">
           <PanelRef>
             <DetailViewPanel>
               <InputColumn>

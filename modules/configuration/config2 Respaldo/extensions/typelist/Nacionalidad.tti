@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<typelist xmlns="http://guidewire.com/typelists" name="Nacionalidad" desc="">
+  <typecode
+    code="chile"
+    name="Chilena/o"/>
+  <typecode
+    code="extranjero"
+    name="Extranjero"/>
+</typelist>

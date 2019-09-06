@@ -7,7 +7,7 @@
   <column
     name="Numero"
     nullok="true"
-    type="integer"/>
+    type="integer"></column>
   <column
     name="FechaEfectiva"
     nullok="true"

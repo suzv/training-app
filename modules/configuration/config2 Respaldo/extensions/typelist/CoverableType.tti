@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<typelist xmlns="http://guidewire.com/typelists" name="CoverableType" desc="">
+  <typecode
+    code="Auto"
+    name="Auto"
+    priority="10"/>
+  <typecode
+    code="Dwelling"
+    name="Dwelling"
+    priority="20"/>
+</typelist>

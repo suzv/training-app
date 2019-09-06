@@ -15,7 +15,7 @@
       name="anABContact"
       type="ABContact"/>
     <LocationRef
-      label="DisplayKey.get(&quot;Training.Summary&quot;)"
+      label="DisplayKey.get(&quot;Contact.Summary&quot;)"
       location="ABContactSummaryPage(anABContact)"/>
     <LocationRef
       location="ABPersonDetailsPage(anABContact)"/>

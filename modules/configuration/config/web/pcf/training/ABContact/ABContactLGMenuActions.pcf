@@ -3,7 +3,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="../../../../../../pcf.xsd">
   <MenuActions
-    id="ABContactLGMenuActions">
+    id="ABContactLGMenuActions"
+    visible="false">
     <Require
       name="anABContact"
       type="ABContact"/>

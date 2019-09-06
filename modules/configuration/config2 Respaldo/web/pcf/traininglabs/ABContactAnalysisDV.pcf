@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../pcf.xsd">
+  <DetailViewPanel
+    id="ABContactAnalysisDV">
+    <Require
+      name="anABContact"
+      type="ABContact"/>
+    <InputColumn>
+      <RangeInput
+        editable="true"
+        id="ContactTier"
+        label="&quot;Contact Tier&quot;"
+        value="anABContact.ContactTier"
+        valueRange="typekey.ContactTier.AllTypeKeys"
+        valueType="typekey.ContactTier"
+        visible="true"/>
+    </InputColumn>
+  </DetailViewPanel>
+</PCF>

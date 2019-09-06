@@ -92,8 +92,8 @@
         <TextInput
           editable="true"
           id="ContactTax"
-          label="&quot;Tax id&quot;"
-          required="true"
+          label="&quot;TAX 11-2345678&quot;"
+          required="false"
           value="contact.TaxID"
           visible="true"/>
       </InputSet>
