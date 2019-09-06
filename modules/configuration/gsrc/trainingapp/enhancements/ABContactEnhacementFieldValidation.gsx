@@ -1,4 +1,5 @@
 package trainingapp.enhancements
+uses aQute.libg.sax.filters.ElementSelectionFilter
 uses gw.api.database.Query
 uses gw.api.database.Relop
 
@@ -21,6 +22,11 @@ enhancement ABContactEnhacementFieldValidation: ABContact {
     else{
       return true
     }
+  }
+
+  function isUnderAge(age: Date): Boolean{
+    if(age.DaysSince < 6570) return true
+    else return true
   }
 }
 
