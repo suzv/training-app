@@ -89,6 +89,13 @@
           visible="if(contact.CountrySel == null){return false}else{return true}">
           <PostOnChange/>
         </TextInput>
+        <TextInput
+          editable="true"
+          id="ContactTax"
+          label="&quot;Tax id&quot;"
+          required="true"
+          value="contact.TaxID"
+          visible="true"/>
       </InputSet>
     </InputColumn>
   </DetailViewPanel>

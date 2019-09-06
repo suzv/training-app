@@ -97,4 +97,8 @@
     fkentity="Policy_Ext"
     name="Poliza"
     nullok="true"/>
+  <column
+    name="TestValue"
+    nullok="true"
+    type="bit"/>
 </entity>

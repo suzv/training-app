@@ -224,7 +224,8 @@
           editable="true"
           id="DateOfBirth"
           label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo.DateOfBirth&quot;)"
-          validationExpression="if (contact.isUnderAge((contact as ABPerson).DateOfBirth )) return true else return null"
+          required="true"
+          validationExpression="if (contact.isUnderAge((contact as ABPerson).DateOfBirth )) return &quot;Debe ser mayor de edad&quot; else return null"
           value="(contact as ABPerson).DateOfBirth"/>
         <TypeKeyInput
           editable="true"

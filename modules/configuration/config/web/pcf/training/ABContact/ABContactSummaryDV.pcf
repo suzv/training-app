@@ -25,7 +25,7 @@
         <PostOnChange/>
       </TypeKeyRadioInput>
       <TextInput
-        editable="true"
+        editable="false "
         id="Rut"
         label="&quot;RUT&quot;"
         required="true"
@@ -33,7 +33,7 @@
         value="anABContact.RUT"
         visible="if(anABContact.Nacionalidad == Nacionalidad.TC_CHILE){return true}else{return false}"/>
       <TextInput
-        editable="true"
+        editable="false "
         id="ContactPassport"
         label="DisplayKey.get(&quot;Contact.Passport&quot;)"
         required="true"
