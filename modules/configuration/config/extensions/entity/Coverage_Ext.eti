@@ -5,94 +5,37 @@
   table="coverage_ext"
   type="retireable">
   <column
-    name="DamageAgainstOthers"
-    nullok="true"
-    type="integer"></column>
-  <column
-    name="Crushes"
-    nullok="true"
-    type="decimal">
-    <columnParam
-      name="precision"
-      value="3"/>
-    <columnParam
-      name="scale"
-      value="2"/>
-  </column>
-  <column
     name="Accidents"
     nullok="true"
-    type="decimal">
-    <columnParam
-      name="precision"
-      value="3"/>
-    <columnParam
-      name="scale"
-      value="2"/>
-  </column>
+    type="bit"></column>
   <column
     name="WinterTires"
     nullok="true"
-    type="decimal">
-    <columnParam
-      name="precision"
-      value="3"/>
-    <columnParam
-      name="scale"
-      value="2"/>
-  </column>
+    type="bit"></column>
   <column
     name="ElectricalSystems"
     nullok="true"
-    type="integer"></column>
+    type="bit"></column>
   <column
     name="Base"
     nullok="true"
-    type="decimal">
-    <columnParam
-      name="precision"
-      value="3"/>
-    <columnParam
-      name="scale"
-      value="2"/>
-  </column>
+    type="bit"></column>
   <column
     name="PersonalBelongings"
     nullok="true"
-    type="decimal">
-    <columnParam
-      name="precision"
-      value="3"/>
-    <columnParam
-      name="scale"
-      value="2"/>
-  </column>
+    type="bit"></column>
   <column
     name="Earthquakes"
     nullok="true"
-    type="integer"></column>
+    type="bit"></column>
   <column
     name="Fires"
     nullok="true"
-    type="decimal">
-    <columnParam
-      name="precision"
-      value="3"/>
-    <columnParam
-      name="scale"
-      value="2"/>
-  </column>
+    type="bit"></column>
   <column
-    name="flooding"
+    name="Flooding"
     nullok="true"
-    type="decimal">
-    <columnParam
-      name="precision"
-      value="3"/>
-    <columnParam
-      name="scale"
-      value="2"/>
-  </column>
+    type="bit"></column>
   <foreignkey
     fkentity="Policy_Ext"
     name="Poliza"
@@ -102,11 +45,11 @@
     nullok="true"
     type="bit"/>
   <column
-    name="DAO"
+    name="DamageAgainstOthers"
     nullok="true"
     type="bit"/>
   <column
-    name="Choques"
+    name="Crushes"
     nullok="true"
     type="bit"/>
 </entity>
