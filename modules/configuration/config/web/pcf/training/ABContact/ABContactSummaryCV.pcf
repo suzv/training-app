@@ -25,7 +25,8 @@
             action="trainingapp.base.AssignedUserUtil.selectLeastBusyUser(anABContact)"
             available="CurrentLocation.InEditMode"
             id="SuggestLeastBusyUserButton"
-            label="DisplayKey.get(&quot;Training.SuggestLeastBusyUser&quot;)"/>
+            label="DisplayKey.get(&quot;Training.SuggestLeastBusyUser&quot;)"
+            visible="false"/>
         </Toolbar>
       </PanelRef>
     </Card>
@@ -79,6 +80,13 @@
             visible="true">
             <PostOnChange/>
           </TypeKeyInput>
+          <TextInput
+            formatType="exactNumber"
+            id="CoverableCosto"
+            label="DisplayKey.get(&quot;Contact.CoverableCost&quot;)"
+            value="anABContact.Coverable.CoverableCost"
+            valueType="java.lang.Integer"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
         </InputColumn>
       </DetailViewPanel>
       <DetailViewPanel>
@@ -90,15 +98,25 @@
             editable="true "
             id="DamageAgainstOthersID"
             label="&quot;Da&#241;os a Terceros&quot;"
-            value="anCoverage.TestValue "
+            value="anABContact.Poliza.CoverageExt.DAO"
             valueType="java.lang.Boolean "
-            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <TextInput
+            editable="true "
+            id="DamageAgainstPrueba"
+            label="&quot;Damage Against Others&quot;"
+            value="anCoverage.DamageAgainstOthers"
+            valueType="java.lang.Integer"/>
           <BooleanRadioInput
             editable="true "
             id="CrushesID"
             label="&quot;Choques&quot;"
-            value="anCoverage.TestValue"
-            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+            value="anABContact.Poliza.CoverageExt.Choques"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
           <BooleanRadioInput
             editable="true "
             id="AccidentsID"
@@ -157,6 +175,16 @@
       </DetailViewPanel>
       <DetailViewPanel>
         <InputColumn>
+          <TextInput
+            id="PrimaEnhancement"
+            label="&quot;Prima Enhancement&quot;"
+            value="anABContact.CalculoPrima"
+            visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
+          <TextInput
+            id="Edad"
+            label="DisplayKey.get(&quot;Contact.Age&quot;)"
+            value="(anABContact as ABPerson).AgeReal"
+            visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
           <TextInput
             editable="true "
             id="PrimaID"

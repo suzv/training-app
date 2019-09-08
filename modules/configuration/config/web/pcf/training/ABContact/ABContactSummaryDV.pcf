@@ -41,7 +41,6 @@
         value="(anABContact as ABPerson).LastName"
         visible="if(InEditMode &amp;&amp; anABContact typeis ABPerson){return true}else{return false}"/>
       <TypeKeyRadioInput
-        editable="true"
         id="ContactNacionalidad"
         label="DisplayKey.get(&quot;Contact.Nacionality&quot;)"
         required="true"
@@ -58,7 +57,6 @@
         value="anABContact.RUT"
         visible="if(anABContact.Nacionalidad == Nacionalidad.TC_CHILE){return true}else{return false}"/>
       <TextInput
-        editable="true"
         id="ContactPassport"
         label="DisplayKey.get(&quot;Contact.Passport&quot;)"
         required="true"
@@ -87,7 +85,7 @@
       <TypeKeyInput
         editable="true"
         id="PaisIn"
-        label="&quot;Pais&quot;"
+        label="DisplayKey.get(&quot;Contact.Country&quot;)"
         required="true"
         value="anABContact.CountrySel"
         valueType="typekey.Country"
@@ -97,7 +95,7 @@
       <TypeKeyInput
         editable="true"
         id="RegionIn"
-        label="&quot;Region&quot;"
+        label="DisplayKey.get(&quot;Contact.Region&quot;)"
         required="true"
         value="anABContact.Region"
         valueType="typekey.Regions_Ext"
@@ -129,12 +127,18 @@
         validationExpression="if (anABContact.isUnderAge((anABContact as ABPerson).DateOfBirth )) return &quot;No cumple con la mayor&#237;a de edad&quot; else return null"
         value="(anABContact as ABPerson).DateOfBirth"
         visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
+      <TextInput
+        id="Edad"
+        label="DisplayKey.get(&quot;Contact.Age&quot;)"
+        value="(anABContact as ABPerson).AgeReal"
+        visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
       <TypeKeyInput
         editable="true"
         id="Gender"
         label="DisplayKey.get(&quot;Training.Gender&quot;)"
         value="(anABContact as ABPerson).Gender"
-        valueType="typekey.GenderType"/>
+        valueType="typekey.GenderType"
+        visible="if(anABContact typeis ABCompany){return false}else{return true}"/>
       <DateInput
         id="CreateTime"
         label="DisplayKey.get(&quot;Training.CreatedOn&quot;)"

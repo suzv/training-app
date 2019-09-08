@@ -120,7 +120,8 @@
         label="DisplayKey.get(&quot;Web.Reviews.MinimumScore&quot;)"
         value="SearchCriteria.Score"
         valueRange="scoreRange()"
-        valueType="java.lang.Integer"/>
+        valueType="java.lang.Integer"
+        __disabled="true"/>
      <!-- Disabled for TrainingApp START OF COMMENT
       <RangeInput
         editable="true"
@@ -152,7 +153,8 @@
 
        END OF COMMENT  -->
     </InputColumn>
-    <InputColumn>
+    <InputColumn
+      __disabled="true">
       <Label
         label="DisplayKey.get(&quot;Web.ContactSearch.Location&quot;)"/>
       <InputSetRef

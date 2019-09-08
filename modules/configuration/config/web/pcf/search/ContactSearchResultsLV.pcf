@@ -53,29 +53,20 @@
           sortOrder="1"
           value="abContact.DisplayName"/>
         <TextCell
+          id="RutPass"
+          label="&quot;Rut / Pasaporte&quot;"
+          sortBy="abContact.PrimaryAddress.AddressLine1"
+          value="abContact.RUT"/>
+        <TextCell
           id="Address"
           label="DisplayKey.get(&quot;Web.ContactSearchResults.PrimaryAddress.AddressLine1&quot;)"
           sortBy="abContact.PrimaryAddress.AddressLine1"
-          value="abContact.PrimaryAddress.AddressLine1DisplayValue"/>
-        <TextCell
-          id="City"
-          label="DisplayKey.get(&quot;Web.ContactSearchResults.PrimaryAddress.City&quot;)"
-          sortBy="abContact.PrimaryAddress.City"
-          value="abContact.PrimaryAddress.CityDisplayValue"/>
+          value="abContact.Direccion"/>
         <TypeKeyCell
-          id="State"
-          label="gw.api.address.AddressCountrySettings.getSettings(searchCriteria.Address.Country).StateLabel"
-          value="abContact.PrimaryAddress.State"
-          valueType="typekey.State"/>
-        <TextCell
-          id="PostalCode"
-          label="gw.api.address.AddressCountrySettings.getSettings(searchCriteria.Address.Country).PostalCodeLabel"
-          value="abContact.PrimaryAddress.PostalCode"/>
-        <TextCell
-          enableSort="false"
-          id="PrimaryPhone"
-          label="DisplayKey.get(&quot;Web.ContactSearchResults.PrimaryPhone&quot;)"
-          value="abContact.PrimaryPhoneValue"/>
+          id="Pais"
+          label="DisplayKey.get(&quot;Training.Country&quot;)"
+          value="abContact.CountrySel"
+          valueType="typekey.Country"/>
         <TypeKeyCell
           id="ContactSubtype"
           label="DisplayKey.get(&quot;Web.ContactSearchResults.ContactSubtype&quot;)"

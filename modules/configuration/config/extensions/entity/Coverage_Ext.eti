@@ -101,4 +101,12 @@
     name="TestValue"
     nullok="true"
     type="bit"/>
+  <column
+    name="DAO"
+    nullok="true"
+    type="bit"/>
+  <column
+    name="Choques"
+    nullok="true"
+    type="bit"/>
 </entity>

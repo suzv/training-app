@@ -16,11 +16,12 @@
     name="Prima"
     nullok="true"
     type="integer"/>
-  <array
-    arrayentity="Coverage_Ext"
-    name="Coverages"/>
   <foreignkey
     fkentity="ABContact"
     name="abcontact"
+    nullok="true"/>
+  <onetoone
+    fkentity="Coverage_Ext"
+    name="CoverageExt"
     nullok="true"/>
 </entity>
