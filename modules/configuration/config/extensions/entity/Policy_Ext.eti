@@ -24,4 +24,8 @@
     fkentity="Coverage_Ext"
     name="CoverageExt"
     nullok="true"/>
+  <column
+    name="Activada"
+    nullok="true"
+    type="bit"/>
 </entity>
