@@ -220,7 +220,7 @@
             visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
           <ButtonInput
             action="anABContact.activarPoliza()"
-            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            available="if(anABContact.Poliza.Activada == true || anABContact.Coverable.TypeCoverable == null){return false}else{return true}"
             id="btnActivar"
             label="DisplayKey.get(&quot;Contact.Activate&quot;)"
             value="&quot;ACTIVAR&quot;//anABContact.Poliza.Activada as String"
