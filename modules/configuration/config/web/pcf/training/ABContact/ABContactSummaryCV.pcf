@@ -105,6 +105,101 @@
             valueType="java.lang.Integer"
             visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
         </InputColumn>
+        <InputColumn
+          id="inputcolumnid">
+          <Label
+            id="LABELID"
+            label="&quot;Porcentajes de Coberturas&quot;"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <InputDivider/>
+          <TextInput
+            formatType="general"
+            id="DAMAGEID"
+            label="&quot;Da&#241;o Contra Terceros:&quot;"
+            value="Coverage_Ext.valueOfDamagesS() "
+            valueType="java.lang.Integer"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <InputDivider/>
+          <TextInput
+            formatType="general"
+            id="CHOQUESID"
+            label="&quot;Choques:&quot;"
+            value="Coverage_Ext.valueOfCrushesS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <InputDivider/>
+          <TextInput
+            formatType="general"
+            id="ACCIDENTESID"
+            label="&quot;Accidentes:&quot;"
+            value="Coverage_Ext.valueOfAccidentsS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <InputDivider/>
+          <TextInput
+            formatType="general"
+            id="LLANTASID"
+            label="&quot;LLantas de Invierno:&quot;"
+            value="Coverage_Ext.valueOfWinterTiresS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <InputDivider/>
+          <TextInput
+            formatType="general"
+            id="SISTEMASID"
+            label="&quot;Sistemas El&#233;ctricos:&quot;"
+            value="Coverage_Ext.valueOfElectricalSystemsS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <InputDivider/>
+        </InputColumn>
+        <InputColumn>
+          <Label
+            id="LABEL2ID"
+            label="&quot;Porcentajes de Coberturas&quot;"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider/>
+          <TextInput
+            formatType="general"
+            id="BASESID"
+            label="&quot;Base:&quot;"
+            value="Coverage_Ext.valueOfBaseS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider/>
+          <TextInput
+            formatType="general"
+            id="BIENESID"
+            label="&quot;Bienes Personales:&quot;"
+            value="Coverage_Ext.valueOfPersonalBelongingsS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider/>
+          <TextInput
+            formatType="general"
+            id="EARTHSID"
+            label="&quot;Terremotos:&quot;"
+            value="Coverage_Ext.valueOfEarthquakesS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider/>
+          <TextInput
+            formatType="general"
+            id="FIREID"
+            label="&quot;Incendios:&quot;"
+            value="Coverage_Ext.valueOfFiresS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider/>
+          <TextInput
+            formatType="general"
+            id="FLOODID"
+            label="&quot;Innundaciones:&quot;"
+            value="Coverage_Ext.valueOfFloodingS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider/>
+        </InputColumn>
       </DetailViewPanel>
       <DetailViewPanel>
         <InputColumn>
