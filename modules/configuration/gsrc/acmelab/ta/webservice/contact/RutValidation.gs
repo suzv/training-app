@@ -1,6 +1,6 @@
 package acmelab.ta.webservice.contact
- uses acmelab.ta.webservice.contact.rutvalidaor.rut.RutsPortService
- uses acmelab.ta.webservice.contact.rutvalidaor.rut.elements.GetRutValidationRequest
+ uses acmelab.ta.webservice.contact.rutvalidator.rut.RutsPortService
+ uses acmelab.ta.webservice.contact.rutvalidator.rut.elements.GetRutValidationRequest
 
 class RutValidation {
 

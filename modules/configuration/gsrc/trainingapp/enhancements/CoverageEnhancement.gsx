@@ -3,7 +3,7 @@ package trainingapp.enhancements
 uses gw.transaction.Transaction
 
 enhancement CoverageEnhancement : Coverage_Ext {
-
+/*
   public static function createCov(DamageAgainstOther : Integer, Crushes: double, Accidents:double, WinterTires:double,
                             ElectricalSystems:Integer, Base:double, PersonalBelongings:double, Earthquakes:Integer, Fires:double,
                             Flooding:double){
@@ -21,13 +21,5 @@ enhancement CoverageEnhancement : Coverage_Ext {
         :flooding = Flooding
       }
     },"su")
-  }
-
-
-
-
-
-
-
-
+    */
 }

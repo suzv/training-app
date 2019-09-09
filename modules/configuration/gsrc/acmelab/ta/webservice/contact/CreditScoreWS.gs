@@ -5,6 +5,7 @@ uses acmelab.ta.webservice.contact.rutvalidator.contacts.elements.GetContactRequ
 class CreditScoreWS {
 
   public static function setContactCreditScore(rut: String) : int{
+
     var service = new ContactsPortService()
     var request = new GetContactRequest()
     request.Id =  rut
