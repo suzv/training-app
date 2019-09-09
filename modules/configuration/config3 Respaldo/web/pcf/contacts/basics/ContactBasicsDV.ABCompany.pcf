@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../pcf.xsd">
+  <DetailViewPanel
+    id="ContactBasicsDV"
+    mode="ABCompany|ABCompanyVendor|ABMedicalCareOrg|ABAutoRepairShop|ABAutoTowingAgcy|ABLawFirm|ABPolicyCompany">
+    <Require
+      name="contact"
+      type="ABContact"/>
+    <Variable
+      initialValue="contact.getSortedCategoryScores()"
+      name="categoryScores"
+      type="ABContactCategoryScore[]"/>
+    <Variable
+      initialValue="categoryScores != null and categoryScores.length &gt; 0"
+      name="hasCategoryScores"
+      type="Boolean"/>
+    <Variable
+      initialValue="new gw.web.ContactDetailsVendorHelper(contact)"
+      name="contactDetailsVendorHelper"
+      type="gw.web.ContactDetailsVendorHelper"/>
+    <InputColumn>
+      <TextInput
+        boldLabel="true"
+        boldValue="true"
+        id="CreateStatus"
+        label="DisplayKey.get(&quot;Web.ContactDetail.CreateStatus&quot;)"
+        value="contact.CreateStatus.DisplayName"
+        visible="contact.CreateStatus != ContactCreationApprovalStatus.TC_APPROVED"/>
+      <InputDivider
+        visible="contact.CreateStatus != ContactCreationApprovalStatus.TC_APPROVED"/>
+      <Label
+        label="contact.getSubtype().DisplayName"/>
+      <InputSetRef
+        def="GlobalContactNameInputSet(new gw.api.name.ContactNameOwner(new gw.api.name.ABContactNameDelegate(contact as ABCompany)))"
+        mode="gw.api.name.NameLocaleSettings.PCFMode"
+        visible="true"/>
+      <InputSet
+        visible="!(contact typeis ABCompanyVendor)">
+        <TextInput
+          editable="true"
+          id="ContactRut"
+          label="&quot;RUT&quot;"
+          required="true"
+          validationExpression="if (acmelab.ta.webservice.contact.RutValidation.validate(contact.RUT)) {if (contact.isDuplicate(contact.RUT) == false){return null} else {return &quot;El RUT ingresado ya existe.&quot;} } else return &quot;El RUT no es valido.&quot;"
+          value="contact.RUT"
+          visible="true"/>
+        <TextInput
+          editable="true"
+          id="ContactEmail"
+          label="&quot;Email&quot;"
+          required="true"
+          value="contact.EmailAddress1"
+          visible="true"/>
+        <TypeKeyInput
+          editable="true"
+          id="CountrySelected"
+          label="DisplayKey.get(&quot;Contact.Pais&quot;)"
+          required="true"
+          value="contact.CountrySel"
+          valueType="typekey.Country"
+          visible="true">
+          <PostOnChange
+            target="ContactRegion"/>
+        </TypeKeyInput>
+        <TypeKeyInput
+          editable="true"
+          id="ContactRegion"
+          label="DisplayKey.get(&quot;Contact.Region&quot;)"
+          required="true"
+          value="contact.Region"
+          valueType="typekey.Regions_Ext"
+          visible="if(contact.CountrySel == Country.TC_CL){return true}else{return false}"></TypeKeyInput>
+        <TextInput
+          editable="true"
+          id="ContactDireccion"
+          label="DisplayKey.get(&quot;Contact.Address&quot;)"
+          required="true"
+          value="contact.Direccion"
+          visible="if(contact.CountrySel == null){return false}else{return true}"/>
+        <TextInput
+          editable="true"
+          id="ContactCodigoPostal"
+          label="DisplayKey.get(&quot;Contact.PostalCode&quot;)"
+          regex="&quot;[0-9]{7}&quot;"
+          required="true"
+          value="contact.CodigoPostal"
+          visible="if(contact.CountrySel == null){return false}else{return true}">
+          <PostOnChange/>
+        </TextInput>
+        <TextInput
+          editable="true"
+          id="ContactTax"
+          label="&quot;TAX 11-2345678&quot;"
+          required="false"
+          value="contact.TaxID"
+          visible="true"/>
+      </InputSet>
+    </InputColumn>
+  </DetailViewPanel>
+</PCF>

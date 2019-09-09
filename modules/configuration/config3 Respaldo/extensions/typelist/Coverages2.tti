@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<typelist xmlns="http://guidewire.com/typelists" name="Coverages2" desc="">
+  <typecode
+    code="Base"
+    name="Base"/>
+  <typecode
+    code="BienesPersonales"
+    name="BienesPersonales"/>
+  <typecode
+    code="Terremotos"
+    name="Terremotos"/>
+  <typecode
+    code="Incendios"
+    name="Incendios"/>
+  <typecode
+    code="Innundaciones"
+    name="Innundaciones"/>
+  <typefilter
+    desc="Propiedad"
+    name="Propiedad">
+    <include
+      code="Base"/>
+    <include
+      code="BienesPersonales"/>
+    <include
+      code="Terremotos"/>
+    <include
+      code="Incendios"/>
+    <include
+      code="Innundaciones"/>
+  </typefilter>
+</typelist>

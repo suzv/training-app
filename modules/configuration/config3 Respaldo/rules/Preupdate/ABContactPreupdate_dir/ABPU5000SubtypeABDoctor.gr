@@ -1,0 +1,27 @@
+package rules.Preupdate.ABContactPreupdate_dir
+uses gw.api.util.DateUtil
+
+uses java.lang.String
+
+@gw.rules.RuleName("ABPU 5000 - Subtype ABDoctor")
+internal class ABPU5000SubtypeABDoctor {
+  static function doCondition(aBContact : entity.ABContact) : boolean {
+/*start00rule*/
+    return aBContact typeis ABDoctor
+        and
+        aBContact.DoctorSpecialty == null
+/*end00rule*/
+}
+
+  static function doAction(aBContact : entity.ABContact, actions : gw.rules.Action) {
+/*start00rule*/
+
+    var userFlag = new FlagEntry()
+
+    userFlag.FlagDate = DateUtil.currentDate()
+    userFlag.Reason = FlagEntryReason.TC_DOCTOR_SPECIALTY_UNSPECIFIED
+
+    aBContact.addToFlagEntries(userFlag)
+/*end00rule*/
+  }
+}
