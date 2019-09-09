@@ -248,4 +248,12 @@
     name="CreditScore"
     nullok="true"
     type="integer"/>
+  <column
+    name="Ciudad"
+    nullok="true"
+    type="varchar">
+    <columnParam
+      name="size"
+      value="20"/>
+  </column>
 </extension>

@@ -217,7 +217,7 @@
             id="PrimaEnhancement"
             label="&quot;Prima Enhancement&quot;"
             value="anABContact.CalculoPrima"
-            visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
+            visible="true"/>
           <ButtonInput
             action="anABContact.activarPoliza()"
             available="if(anABContact.Poliza.Activada == true || anABContact.Coverable.TypeCoverable == null){return false}else{return true}"
