@@ -29,14 +29,14 @@
       <TextInput
         editable="true"
         id="FirstName"
-        label="DisplayKey.get(&quot;Training.FirstName&quot;)"
+        label="DisplayKey.get(&quot;Contact.FirstName&quot;)"
         required="true"
         value="(anABContact as ABPerson).FirstName"
         visible="if(InEditMode &amp;&amp; anABContact typeis ABPerson){return true}else{return false}"/>
       <TextInput
         editable="true"
         id="LastName"
-        label="DisplayKey.get(&quot;Training.LastName&quot;)"
+        label="DisplayKey.get(&quot;Contact.LastName&quot;)"
         required="true"
         value="(anABContact as ABPerson).LastName"
         visible="if(InEditMode &amp;&amp; anABContact typeis ABPerson){return true}else{return false}"/>
@@ -72,7 +72,7 @@
         visible="true"/>
       <TextInput
         id="ContactID"
-        label="DisplayKey.get(&quot;Training.PublicID&quot;)"
+        label="DisplayKey.get(&quot;Contact.PublicID&quot;)"
         value="anABContact.PublicID"/>
       <RangeInput
         editable="true"
@@ -135,7 +135,7 @@
       <TypeKeyInput
         editable="true"
         id="Gender"
-        label="DisplayKey.get(&quot;Training.Gender&quot;)"
+        label="DisplayKey.get(&quot;Contact.Gender&quot;)"
         value="(anABContact as ABPerson).Gender"
         valueType="typekey.GenderType"
         visible="if(anABContact typeis ABCompany){return false}else{return true}"/>

@@ -27,53 +27,53 @@ enhancement CoverageEnhancement : Coverage_Ext {
   }
 
     public static function valueOfDamagesS():Integer {
-      var datos = Query.make(Coverage_Ext).select().AtMostOneRow.DamageAgainstOthersS
+      var datos = Query.make(Coverage_Ext).select().first().DamageAgainstOthersS
       return datos
     }
 
     public static function valueOfCrushesS():BigDecimal
     {
-      var datos2 = Query.make(Coverage_Ext).select().AtMostOneRow.CrushesS
+      var datos2 = Query.make(Coverage_Ext).select().first().CrushesS
       return datos2
     }
 
     public static function valueOfAccidentsS():BigDecimal {
-      var datos3 = Query.make(Coverage_Ext).select().AtMostOneRow.AccidentsS
+      var datos3 = Query.make(Coverage_Ext).select().first().AccidentsS
       return datos3
     }
 
     public static function valueOfWinterTiresS():BigDecimal {
-      var datos4 = Query.make(Coverage_Ext).select().AtMostOneRow.WinterTiresS
+      var datos4 = Query.make(Coverage_Ext).select().first().WinterTiresS
       return datos4
     }
 
     public static function valueOfElectricalSystemsS():Integer {
-      var datos5 = Query.make(Coverage_Ext).select().AtMostOneRow.ElectricalSystemsS
+      var datos5 = Query.make(Coverage_Ext).select().first().ElectricalSystemsS
       return datos5
     }
 
     public static function valueOfBaseS():BigDecimal {
-      var datos6 = Query.make(Coverage_Ext).select().AtMostOneRow.BaseS
+      var datos6 = Query.make(Coverage_Ext).select().first().BaseS
       return datos6
     }
 
     public static function valueOfPersonalBelongingsS():BigDecimal {
-      var datos7 = Query.make(Coverage_Ext).select().AtMostOneRow.PersonalBelongingsS
+      var datos7 = Query.make(Coverage_Ext).select().first().PersonalBelongingsS
       return datos7
     }
 
     public static function valueOfEarthquakesS():Integer {
-      var datos8 = Query.make(Coverage_Ext).select().AtMostOneRow.EarthquakesS
+      var datos8 = Query.make(Coverage_Ext).select().first().EarthquakesS
       return datos8
     }
 
     public static function valueOfFiresS():BigDecimal {
-      var datos9 = Query.make(Coverage_Ext).select().AtMostOneRow.FiresS
+      var datos9 = Query.make(Coverage_Ext).select().first().FiresS
       return datos9
     }
 
     public static function valueOfFloodingS():BigDecimal {
-      var datos10 = Query.make(Coverage_Ext).select().AtMostOneRow.floodingS
+      var datos10 = Query.make(Coverage_Ext).select().first().floodingS
       return datos10
     }
 }

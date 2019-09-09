@@ -64,7 +64,7 @@
           value="abContact.Direccion"/>
         <TypeKeyCell
           id="Pais"
-          label="DisplayKey.get(&quot;Training.Country&quot;)"
+          label="DisplayKey.get(&quot;Contact.Country&quot;)"
           value="abContact.CountrySel"
           valueType="typekey.Country"/>
         <TypeKeyCell

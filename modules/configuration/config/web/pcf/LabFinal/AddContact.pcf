@@ -22,11 +22,11 @@
         <ToolbarButton
           action="AddContactPopup.push(entity.ABPerson, parentContact)"
           id="addPerson"
-          label="&quot;Add Person&quot;"/>
+          label="DisplayKey.get(&quot;Contact.AddPerson&quot;)"/>
         <ToolbarButton
           action="AddContactPopup.push(entity.ABCompany, parentContact)"
           id="addCompany"
-          label="&quot;Add Company&quot;"/>
+          label="DisplayKey.get(&quot;Contact.AddCompany&quot;)"/>
       </Toolbar>
     </Screen>
   </Page>
