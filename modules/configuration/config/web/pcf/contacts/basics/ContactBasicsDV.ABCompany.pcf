@@ -89,14 +89,12 @@
           visible="if(contact.CountrySel == null){return false}else{return true}">
           <PostOnChange/>
         </TextInput>
-        <TextInput
-          editable="true"
-          id="ContactTax"
-          label="&quot;TAX 11-2345678&quot;"
-          required="false"
-          value="contact.TaxID"
-          visible="true"/>
       </InputSet>
+      <HiddenInput
+        id="ContactTaxInv"
+        label="&quot;Tax ID&quot;"
+        value="contact.GenerateTaxID(contact)"
+        valueType="java.lang.String"/>
     </InputColumn>
   </DetailViewPanel>
 </PCF>

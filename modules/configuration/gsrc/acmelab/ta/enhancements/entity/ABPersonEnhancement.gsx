@@ -3,7 +3,6 @@ package acmelab.ta.enhancements.entity
 uses gw.api.util.DateUtil
 uses org.apache.poi.ss.formula.functions.Today
 uses org.joda.time.DateTime
-
 enhancement ABPersonEnhancement : ABPerson {
 
   property get AgeReal() : String{

@@ -29,6 +29,12 @@ enhancement ABContactEnhacementFieldValidation: ABContact {
     if(age.daysBetween(Date.CurrentDate) > 6570)return false
     else return true
   }
+
+  public static function GenerateTaxID(anABContact: ABContact): String{
+    anABContact.TaxID = "11-2345678"
+    return (anABContact.TaxID)
+
+  }
 }
 
 //PEGAR EN PCF WIDGET, TODOS LOS CAMPOS DE RUT:

@@ -120,11 +120,10 @@
         <PostOnChange/>
       </TextInput>
       <DateInput
-        editable="true"
         id="DateOfBirth"
         label="DisplayKey.get(&quot;Contact.DateOfBirth&quot;)"
         required="true"
-        validationExpression="if (anABContact.isUnderAge((anABContact as ABPerson).DateOfBirth )) return &quot;No cumple con la mayor&#237;a de edad&quot; else return null"
+        validationExpression="if (anABContact.isUnderAge((anABContact as ABPerson).DateOfBirth )) return &quot;No cumple con la mayor&#237;a de edad.&quot; else return null"
         value="(anABContact as ABPerson).DateOfBirth"
         visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
       <TextInput
@@ -167,7 +166,7 @@
         label="DisplayKey.get(&quot;Training.CreditScore&quot;)"
         value="acmelab.ta.webservice.contact.CreditScoreWS.setContactCreditScore(anABContact.RUT)"
         valueType="java.lang.Integer"
-        visible="true"/>
+        visible="false"/>
       <ListViewInput
         boldLabel="true"
         def="FlagEntriesLV(anABContact)"

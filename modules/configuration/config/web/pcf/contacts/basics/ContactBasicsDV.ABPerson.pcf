@@ -66,6 +66,7 @@
         id="ContactPassport"
         label="DisplayKey.get(&quot;Contact.Passport&quot;)"
         required="true"
+        validationExpression="if (contact.isDuplicate(contact.RUT) == false){return null} else {return &quot;El RUT ingresado ya existe.&quot;}"
         value="contact.RUT"
         visible="if(contact.Nacionalidad == Nacionalidad.TC_EXTRANJERO){return true}else{return false}"/>
       <InputDivider/>
@@ -224,7 +225,7 @@
           editable="true"
           id="DateOfBirth"
           label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo.DateOfBirth&quot;)"
-          validationExpression="if (contact.isUnderAge((contact as ABPerson).DateOfBirth )) return true else return null"
+          validationExpression="if (contact.isUnderAge((contact as ABPerson).DateOfBirth )) return &quot;No cumple con la mayor&#237;a de edad.&quot; else return null"
           value="(contact as ABPerson).DateOfBirth"/>
         <TypeKeyInput
           editable="true"
