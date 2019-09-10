@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<entity
+  xmlns="http://guidewire.com/datamodel"
+  entity="ABIncidente_Ext"
+  table="abincidente"
+  type="retireable"
+  exportable="true">
+  <column
+    name="NombreIncidente"
+    nullok="true"
+    type="varchar">
+    <columnParam
+      name="size"
+      value="30"/>
+  </column>
+  <column
+    name="Descripcion"
+    nullok="true"
+    type="varchar">
+    <columnParam
+      name="size"
+      value="50"/>
+  </column>
+  <column
+    name="FechaIncidente"
+    nullok="true"
+    type="dateonly"/>
+  <foreignkey
+    fkentity="ABContact"
+    name="Contact"
+    nullok="true"/>
+  <onetoone
+    fkentity="ABCoverable_Ext"
+    name="Coverables"
+    nullok="true"/>
+</entity>

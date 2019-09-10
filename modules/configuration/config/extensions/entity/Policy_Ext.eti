@@ -5,19 +5,27 @@
   table="policy_ext"
   type="retireable">
   <column
-    name="PolicyType"
+    name="Numero"
     nullok="true"
-    type="varchar">
-    <columnParam
-      name="size"
-      value="40"/>
-  </column>
+    type="integer"></column>
   <column
-    name="InitDate"
+    name="FechaEfectiva"
     nullok="true"
     type="dateonly"/>
   <column
     name="Prima"
     nullok="true"
-    type="money"/>
+    type="integer"/>
+  <foreignkey
+    fkentity="ABContact"
+    name="abcontact"
+    nullok="true"/>
+  <onetoone
+    fkentity="Coverage_Ext"
+    name="CoverageExt"
+    nullok="true"/>
+  <column
+    name="Activada"
+    nullok="true"
+    type="bit"/>
 </entity>

@@ -62,7 +62,7 @@
       label="DisplayKey.get(&quot;Web.AddressBook.AddressInputSet.Address2&quot;)"
       required="addressOwner.isRequired(gw.api.address.AddressOwnerFieldId.ADDRESSLINE2)"
       value="addressOwner.AddressDelegate.AddressLine2"
-      visible="addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.ADDRESSLINE2)"/>
+      visible="false"/>
     <TextInput
       available="addressOwner.isAvailable(gw.api.address.AddressOwnerFieldId.ADDRESSLINE3)"
       editable="addressOwner.isEditable(gw.api.address.AddressOwnerFieldId.ADDRESSLINE3)"
@@ -70,7 +70,7 @@
       label="DisplayKey.get(&quot;Web.AddressBook.AddressInputSet.Address3&quot;)"
       required="addressOwner.isRequired(gw.api.address.AddressOwnerFieldId.ADDRESSLINE3)"
       value="addressOwner.AddressDelegate.AddressLine3"
-      visible="addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.ADDRESSLINE3)"/>
+      visible="false"/>
     <AddressAutoFillInput
       action="gw.api.contact.AddressAutocompleteUtil.autofillAddress(addressOwner.AddressDelegate, &quot;City&quot;)"
       actionAvailable="addressOwner.AutofillIconEnabled"
@@ -99,7 +99,7 @@
       required="addressOwner.isRequired(gw.api.address.AddressOwnerFieldId.COUNTY)"
       validationExpression="gw.api.contact.AddressAutocompleteUtil.validate(addressOwner.AddressDelegate, &quot;County&quot;)"
       value="addressOwner.AddressDelegate.County"
-      visible="addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.COUNTY)">
+      visible="false">
       <PostOnChange
         onChange="if (addressOwner.AutofillEnabled) gw.api.contact.AddressAutocompleteUtil.autofillAddress(addressOwner.AddressDelegate, &quot;County&quot;, false)"
         target="globalAddressContainer"/>

@@ -36,6 +36,16 @@ enhancement ABPersonEnhancement: entity.ABPerson {
 
   // end of property
 
+  property get AgeinDays(): Integer{
+    if (this.DateOfBirth == null) {
+      return 0
+    } else {
+      var today = DateUtil.currentDate()
+      var ageInDays = DateUtil.daysBetween(this.DateOfBirth, today)
+      return ageInDays
+    }
+  }
+
 
   /* Sets whichever phone is primary phone to given new phone number.
   */

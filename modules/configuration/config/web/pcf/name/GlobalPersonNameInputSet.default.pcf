@@ -16,6 +16,7 @@
     <TextInput
       id="NameSummary"
       label="DisplayKey.get(&quot;Web.ContactDetail.Name.PersonName&quot;)"
+      required="false"
       value="new gw.api.name.NameFormatter().format(nameOwner.PersonName, &quot; &quot;)"
       visible="nameOwner.ShowNameSummary"/>
     <TypeKeyInput
@@ -26,13 +27,13 @@
       required="nameOwner.isRequired(gw.api.name.NameOwnerFieldId.PREFIX)"
       value="nameOwner.PersonName.Prefix"
       valueType="typekey.NamePrefix"
-      visible="nameOwner.isVisible(gw.api.name.NameOwnerFieldId.PREFIX)"/>
+      visible="false"/>
     <TextInput
       available="nameOwner.isAvailable(gw.api.name.NameOwnerFieldId.FIRSTNAME)"
       editable="nameOwner.isEditable(gw.api.name.NameOwnerFieldId.FIRSTNAME)"
       id="FirstName"
-      label="nameOwner.FirstNameLabel"
-      required="nameOwner.isRequired(gw.api.name.NameOwnerFieldId.FIRSTNAME)"
+      label="DisplayKey.get(&quot;Contact.FirstName&quot;)"
+      required="true"
       value="nameOwner.PersonName.FirstName"
       visible="nameOwner.isVisible(gw.api.name.NameOwnerFieldId.FIRSTNAME)"/>
     <TextInput
@@ -42,7 +43,7 @@
       label="DisplayKey.get(&quot;Web.ContactDetail.Name.MiddleName&quot;)"
       required="nameOwner.isRequired(gw.api.name.NameOwnerFieldId.MIDDLENAME)"
       value="nameOwner.PersonName.MiddleName"
-      visible="nameOwner.isVisible(gw.api.name.NameOwnerFieldId.MIDDLENAME)"/>
+      visible="false"/>
     <TextInput
       available="nameOwner.isAvailable(gw.api.name.NameOwnerFieldId.PARTICLE)"
       editable="nameOwner.isEditable(gw.api.name.NameOwnerFieldId.PARTICLE)"
@@ -55,8 +56,8 @@
       available="nameOwner.isAvailable(gw.api.name.NameOwnerFieldId.LASTNAME)"
       editable="nameOwner.isEditable(gw.api.name.NameOwnerFieldId.LASTNAME)"
       id="LastName"
-      label="nameOwner.LastNameLabel"
-      required="nameOwner.isRequired(gw.api.name.NameOwnerFieldId.LASTNAME)"
+      label="DisplayKey.get(&quot;Contact.LastName&quot;)"
+      required="true"
       value="nameOwner.PersonName.LastName"
       visible="nameOwner.isVisible(gw.api.name.NameOwnerFieldId.LASTNAME)"/>
     <TypeKeyInput
@@ -67,6 +68,6 @@
       required="nameOwner.isRequired(gw.api.name.NameOwnerFieldId.SUFFIX)"
       value="nameOwner.PersonName.Suffix"
       valueType="typekey.NameSuffix"
-      visible="nameOwner.isVisible(gw.api.name.NameOwnerFieldId.SUFFIX)"/>
+      visible="false"/>
   </InputSet>
 </PCF>

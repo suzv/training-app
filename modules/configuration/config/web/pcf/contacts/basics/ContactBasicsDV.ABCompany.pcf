@@ -34,152 +34,75 @@
         label="contact.getSubtype().DisplayName"/>
       <InputSetRef
         def="GlobalContactNameInputSet(new gw.api.name.ContactNameOwner(new gw.api.name.ABContactNameDelegate(contact as ABCompany)))"
-        mode="gw.api.name.NameLocaleSettings.PCFMode"/>
+        mode="gw.api.name.NameLocaleSettings.PCFMode"
+        visible="true"/>
       <InputSet
         visible="!(contact typeis ABCompanyVendor)">
-        <PrivacyInput
+        <TextInput
           editable="true"
-          encryptionExpression="(contact as ABCompany).maskTaxId(VALUE)"
-          id="EIN"
-          label="DisplayKey.get(&quot;Web.ContactDetail.Name.TaxID.EIN&quot;)"
-          value="(contact as ABCompany).TaxID"/>
+          id="ContactRut"
+          label="&quot;RUT&quot;"
+          required="true"
+          validationExpression="if (acmelab.ta.webservice.contact.RutValidation.validate(contact.RUT)) {if (contact.isDuplicate(contact.RUT) == false){return null} else {return &quot;El RUT ingresado ya existe.&quot;} } else return &quot;El RUT no es valido.&quot;"
+          value="contact.RUT"
+          visible="true">
+          <PostOnChange/>
+        </TextInput>
+        <TextInput
+          editable="true"
+          id="ContactEmail"
+          label="&quot;Email&quot;"
+          required="true"
+          value="contact.EmailAddress1"
+          visible="true"/>
+        <TypeKeyInput
+          editable="true"
+          id="CountrySelected"
+          label="DisplayKey.get(&quot;Contact.Pais&quot;)"
+          required="true"
+          value="contact.CountrySel"
+          valueType="typekey.Country"
+          visible="true">
+          <PostOnChange
+            target="ContactRegion"/>
+        </TypeKeyInput>
+        <TypeKeyInput
+          editable="true"
+          id="ContactRegion"
+          label="DisplayKey.get(&quot;Contact.Region&quot;)"
+          required="true"
+          value="contact.Region"
+          valueType="typekey.Regions_Ext"
+          visible="if(contact.CountrySel == Country.TC_CL){return true}else{return false}"></TypeKeyInput>
+        <TextInput
+          editable="true"
+          id="ContactDireccion"
+          label="DisplayKey.get(&quot;Contact.Address&quot;)"
+          required="true"
+          value="contact.Direccion"
+          visible="if(contact.CountrySel == null){return false}else{return true}"/>
+        <TextInput
+          editable="true"
+          id="ContactCodigoPostal"
+          label="DisplayKey.get(&quot;Contact.PostalCode&quot;)"
+          regex="&quot;[0-9]{7}&quot;"
+          required="true"
+          value="contact.CodigoPostal"
+          visible="if(contact.CountrySel == null){return false}else{return true}">
+          <PostOnChange/>
+        </TextInput>
       </InputSet>
-      <TypeKeyInput
-        editable="true"
-        id="VendorAvailability"
-        label="DisplayKey.get(&quot;Web.ContactDetail.VendorAvailability&quot;)"
-        required="contact.Vendor"
-        value="contact.VendorAvailability"
-        valueType="typekey.VendorAvailabilityType"
-        visible="contact.Vendor">
-        <PostOnChange/>
-      </TypeKeyInput>
-      <TextInput
-        editable="true"
-        id="VendorUnavailableMessageInput"
-        label="DisplayKey.get(&quot;Web.ContactDetail.VendorUnavailableMessage&quot;)"
-        maxChars="255"
-        value="contact.VendorUnavailableMessage"
-        visible="contactDetailsVendorHelper.ShowVendorUnavailableMessage"/>
-      <InputDivider/>
-      <InputSetRef
-        def="PrimaryAddressInputSet(contact as ABCompany)"/>
-      <InputDivider
-        visible="hasCategoryScores or (contact.Score != null)"/>
-      <Label
-        label="DisplayKey.get(&quot;Web.Reviews.ReviewPerformance&quot;)"
-        visible="hasCategoryScores or (contact.Score != null)"/>
-      <TextInput
-        id="score"
-        label="DisplayKey.get(&quot;Web.Reviews.OverallScore&quot;)"
-        value="contact.Score"
+      <HiddenInput
+        id="ContactTaxInv"
+        label="&quot;Tax ID&quot;"
+        value="contact.GenerateTaxID(contact)"
+        valueType="java.lang.String"/>
+      <HiddenInput
+        id="CreditScore"
+        label="&quot;Credit Score&quot;"
+        value="contact.GenerateCreditScore(contact)"
         valueType="java.lang.Integer"
-        visible="contact.Score != null"/>
-      <ListViewInput
-        label="DisplayKey.get(&quot;Web.Reviews.CategoryScores&quot;)"
-        visible="hasCategoryScores">
-        <Toolbar/>
-        <ListViewPanel
-          id="CategoryScoresLV">
-          <RowIterator
-            editable="false"
-            elementName="categoryScore"
-            pageSize="0"
-            value="categoryScores"
-            valueType="entity.ABContactCategoryScore[]">
-            <Row>
-              <TypeKeyCell
-                enableSort="false"
-                id="Category"
-                label="DisplayKey.get(&quot;Web.Reviews.Category&quot;)"
-                value="categoryScore.ReviewCategory"
-                valueType="typekey.ReviewCategory"/>
-              <TextCell
-                enableSort="false"
-                id="Score"
-                label="DisplayKey.get(&quot;Web.Reviews.Score&quot;)"
-                value="categoryScore.Score"
-                valueType="java.lang.Integer"/>
-            </Row>
-          </RowIterator>
-        </ListViewPanel>
-      </ListViewInput>
+        visible="if (contact.RUT == null){ return false } else { return true }"/>
     </InputColumn>
-    <InputColumn>
-      <InputSet
-        visible="contact typeis ABCompanyVendor">
-        <InputDivider/>
-        <Label
-          label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo&quot;)"/>
-        <InputSetRef
-          def="ABCompanyVendorBasicInputSet(contact)"
-          mode="contact.Subtype"/>
-        <InputSetRef
-          def="ABCompanyVendorSpecialtyInputSet(contact)"
-          mode="contact.Subtype"/>
-      </InputSet>
-      <TypeKeyInput
-        editable="true"
-        id="Currency"
-        label="DisplayKey.get(&quot;Web.ContactDetail.PreferredCurrency&quot;)"
-        value="(contact as ABCompany).PreferredCurrency"
-        valueType="typekey.Currency"
-        visible="gw.api.util.CurrencyUtil.isMultiCurrencyMode()"/>
-      <InputDivider/>
-      <Label
-        label="DisplayKey.get(&quot;Web.ContactDetail.ContactInfo&quot;)"/>
-      <ABContactInput
-        editable="true"
-        forceContactSubtype="entity.ABPerson"
-        id="PrimaryContact"
-        label="DisplayKey.get(&quot;Web.ContactDetail.PrimaryContact&quot;)"
-        newContactMenu="NewPersonOnlyPickerMenuItemSet"
-        parentContact="contact"
-        value="contact.PrimaryContact"/>
-      <InputSetRef
-        def="GlobalPhoneInputSet(new gw.api.phone.StandardPhoneOwner(new gw.api.phone.ContactPhoneDelegate(contact, ABCompany#WorkPhone), DisplayKey.get(&quot;Web.ContactDetail.Phone.Phone&quot;), false))"
-        editable="true"
-        id="Work"/>
-      <InputSetRef
-        def="GlobalPhoneInputSet(new gw.api.phone.StandardPhoneOwner(new gw.api.phone.ContactPhoneDelegate(contact, ABCompany#FaxPhone), DisplayKey.get(&quot;Web.ContactDetail.Phone.Fax&quot;), false))"
-        editable="true"
-        id="Fax"/>
-      <TextInput
-        editable="true"
-        formatType="email"
-        id="Email1"
-        label="DisplayKey.get(&quot;Web.ContactDetail.PrimaryContact.Email1&quot;)"
-        value="(contact as ABCompany).EmailAddress1"/>
-      <TextInput
-        editable="true"
-        formatType="email"
-        id="Email2"
-        label="DisplayKey.get(&quot;Web.ContactDetail.PrimaryContact.Email2&quot;)"
-        value="(contact as ABCompany).EmailAddress2"/>
-      <InputSetRef
-        def="ABCompanyVendorFormInputSet(contact)"
-        mode="contact.Subtype"/>
-      <InputDivider/>
-      <TextAreaInput
-        boldLabel="true"
-        editable="true"
-        id="Notes"
-        label="DisplayKey.get(&quot;Web.ContactDetail.Notes&quot;)"
-        numRows="3"
-        value="(contact as ABCompany).Notes"/>
-    </InputColumn>
-    <InputFooterSection>
-      <InputDivider/>
-      <ListViewInput
-        boldLabel="true"
-        def="ContactEFTLV(contact)"
-        label="DisplayKey.get(&quot;Web.ContactDetail.EFT&quot;)"
-        labelAbove="true">
-        <Toolbar>
-          <IteratorButtons
-            iterator="ContactEFTLV.ContactEFTLV"/>
-        </Toolbar>
-      </ListViewInput>
-    </InputFooterSection>
   </DetailViewPanel>
 </PCF>

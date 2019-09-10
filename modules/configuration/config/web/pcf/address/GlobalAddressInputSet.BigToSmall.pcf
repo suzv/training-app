@@ -41,19 +41,12 @@
         target="globalAddressContainer"/>
     </TypeKeyInput>
     <AddressAutoFillInput
-      action="gw.api.contact.AddressAutocompleteUtil.autofillAddress(addressOwner.AddressDelegate, &quot;PostalCode&quot;)"
-      actionAvailable="addressOwner.AutofillIconEnabled"
-      autoComplete="pchandler"
       autoCompleteArgIds="PostalCode,Country"
       available="addressOwner.isAvailable(gw.api.address.AddressOwnerFieldId.POSTALCODE)"
       editable="addressOwner.isEditable(gw.api.address.AddressOwnerFieldId.POSTALCODE)"
       id="PostalCode"
-      inputConversion="gw.api.address.PostalCodeInputFormatter.convertPostalCode(VALUE, addressOwner.SelectedCountry)"
-      inputMask="gw.api.contact.AddressAutocompleteUtil.getInputMask(addressOwner.AddressDelegate, &quot;PostalCode&quot;)"
       label="gw.api.address.AddressCountrySettings.getSettings(addressOwner.SelectedCountry).PostalCodeLabel"
       required="addressOwner.isRequired(gw.api.address.AddressOwnerFieldId.POSTALCODE)"
-      tooltip="addressOwner.AutofillIconEnabled ? DisplayKey.get(&quot;AutoFill.Override&quot;) : &quot;&quot;"
-      validationExpression="gw.api.contact.AddressAutocompleteUtil.validate(addressOwner.AddressDelegate, &quot;PostalCode&quot;, gw.api.address.AddressCountrySettings.getSettings(addressOwner.SelectedCountry).PostalCodeLabel)"
       value="addressOwner.AddressDelegate.PostalCode"
       visible="addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.POSTALCODE)">
       <PostOnChange
@@ -101,7 +94,7 @@
       id="AddressLine1Kanji"
       label="addressOwner.AddressLine1Label"
       value="addressOwner.AddressDelegate.AddressLine1Kanji"
-      visible="addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.ADDRESSLINE1KANJI)"/>
+      visible="false"/>
     <TextInput
       available="addressOwner.isAvailable(gw.api.address.AddressOwnerFieldId.ADDRESSLINE2)"
       editable="addressOwner.isEditable(gw.api.address.AddressOwnerFieldId.ADDRESSLINE2)"
@@ -109,13 +102,13 @@
       label="DisplayKey.get(&quot;Web.AddressBook.AddressInputSet.Address2Phonetic&quot;)"
       required="addressOwner.isRequired(gw.api.address.AddressOwnerFieldId.ADDRESSLINE2)"
       value="addressOwner.AddressDelegate.AddressLine2"
-      visible="addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.ADDRESSLINE2)"/>
+      visible="false"/>
     <TextInput
       available="addressOwner.isAvailable(gw.api.address.AddressOwnerFieldId.ADDRESSLINE2KANJI)"
       editable="addressOwner.isEditable(gw.api.address.AddressOwnerFieldId.ADDRESSLINE2KANJI)"
       id="AddressLine2Kanji"
       label="DisplayKey.get(&quot;Web.AddressBook.AddressInputSet.Address2&quot;)"
       value="addressOwner.AddressDelegate.AddressLine2Kanji"
-      visible="addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.ADDRESSLINE2KANJI)"/>
+      visible="false"/>
   </InputSet>
 </PCF>

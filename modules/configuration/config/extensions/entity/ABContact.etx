@@ -177,9 +177,10 @@
       name="size"
       value="40"/>
   </column>
-  <array
-    arrayentity="Incidente_Ext"
-    name="Incidentes"/>
+  <column
+    name="LastCourtesyContact_Ext"
+    nullok="true"
+    type="dateonly"/>
   <column
     name="CustomerRating_Ext"
     nullok="true"
@@ -196,31 +197,63 @@
     nullok="true"
     type="bit"/>
   <column
-    name="LastCourtesyContact_Ext"
-    nullok="true"
-    type="dateonly"/>
-  <column
     name="FraudInvestigationNum_Ext"
     nullok="true"
     type="integer"/>
   <column
-    name="RUT_Ext"
+    name="RUT"
     nullok="true"
     type="varchar">
     <columnParam
       name="size"
-      value="30"/>
+      value="10"/>
+  </column>
+  <onetoone
+    fkentity="Coverable_Ext"
+    name="Coverable"
+    nullok="true"/>
+  <typekey
+    name="Region"
+    nullok="true"
+    typelist="Regions_Ext"/>
+  <typekey
+    name="CountrySel"
+    nullok="true"
+    typelist="Country"/>
+  <column
+    name="Direccion"
+    nullok="true"
+    type="varchar">
+    <columnParam
+      name="size"
+      value="50"/>
   </column>
   <column
-    name="Passport_Ext"
+    name="CodigoPostal"
     nullok="true"
     type="varchar">
     <columnParam
       name="size"
-      value="30"/>
+      value="7"/>
   </column>
   <typekey
-    name="RegionesTK"
+    name="Nacionalidad"
     nullok="true"
-    typelist="Regiones_Ext"/>
+    typelist="Nacionalidad"/>
+  <onetoone
+    fkentity="Policy_Ext"
+    name="Poliza"
+    nullok="true"></onetoone>
+  <column
+    name="CreditScore"
+    nullok="true"
+    type="integer"/>
+  <column
+    name="Ciudad"
+    nullok="true"
+    type="varchar">
+    <columnParam
+      name="size"
+      value="20"/>
+  </column>
 </extension>

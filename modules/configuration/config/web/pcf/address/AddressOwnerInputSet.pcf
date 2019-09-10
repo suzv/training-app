@@ -31,7 +31,7 @@
       label="DisplayKey.get(&quot;Web.AddressBook.AddressInputSet.Description&quot;)"
       required="addressOwner.RequiredFields.contains(gw.api.address.ABAddressOwnerFieldId.DESCRIPTION)"
       value="addressOwner.Address.Description"
-      visible="!addressOwner.HiddenFields.contains(gw.api.address.ABAddressOwnerFieldId.DESCRIPTION)"/>
+      visible="false"/>
     <DateInput
       dateFormat="short"
       editable="isEditable"
@@ -39,6 +39,6 @@
       label="DisplayKey.get(&quot;Address.CA.ValidUntil&quot;)"
       required="addressOwner.RequiredFields.contains(gw.api.address.ABAddressOwnerFieldId.VALIDUNTIL)"
       value="addressOwner.Address.ValidUntil"
-      visible="!addressOwner.HiddenFields.contains(gw.api.address.ABAddressOwnerFieldId.VALIDUNTIL)"/>
+      visible="false"/>
   </InputSet>
 </PCF>

@@ -15,7 +15,8 @@
     <Screen
       id="ABContactSummaryScreen">
       <Toolbar>
-        <EditButtons/>
+        <EditButtons
+          updateConfirmMessage="&quot;&#191;Desea guardar los cambios realizados?&quot;"/>
       </Toolbar>
       <PanelRef
         def="ABContactSummaryCV(anABContact)"/>
