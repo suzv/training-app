@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<typelist xmlns="http://guidewire.com/typelists" name="HeatingType_Ext" desc="">
+  <typecode
+    code="Gas"
+    name="Gas"/>
+  <typecode
+    code="Electrica"
+    name="Eléctrica"/>
+  <typecode
+    code="Lena"
+    name="Leña"/>
+  <typecode
+    code="Parafina"
+    name="Parafina"/>
+</typelist>

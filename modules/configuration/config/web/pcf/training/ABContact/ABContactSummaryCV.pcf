@@ -1,0 +1,384 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../pcf.xsd">
+  <CardViewPanel
+    id="ABContactSummaryCV">
+    <Require
+      name="anABContact"
+      type="ABContact"/>
+    <Variable
+      initialValue="anCoverable"
+      name="anCoverable"
+      type="Coverable_Ext"/>
+    <Variable
+      initialValue="anCoverage"
+      name="anCoverage"
+      type="Coverage_Ext"/>
+    <Card
+      id="Basics"
+      title="DisplayKey.get(&quot;Web.ContactDetail.PageLinks.Basics&quot;)">
+      <PanelRef
+        def="ABContactSummaryDV(anABContact)">
+        <Toolbar>
+          <ToolbarButton
+            action="trainingapp.base.AssignedUserUtil.selectLeastBusyUser(anABContact)"
+            available="CurrentLocation.InEditMode"
+            id="SuggestLeastBusyUserButton"
+            label="DisplayKey.get(&quot;Training.SuggestLeastBusyUser&quot;)"
+            visible="false"/>
+        </Toolbar>
+      </PanelRef>
+    </Card>
+    <Card
+      id="SocialMedia"
+      title="DisplayKey.get(&quot;Training.SocialMedia&quot;)"
+      __disabled="true">
+      <DetailViewPanel>
+        <InputColumn>
+          <Label
+            label="DisplayKey.get(&quot;Training.InstructorComplete&quot;)"/>
+        </InputColumn>
+      </DetailViewPanel>
+    </Card>
+    <Card
+      id="AnalysisCard"
+      title="DisplayKey.get(&quot;Training.Analysis&quot;)"
+      __disabled="true">
+      <PanelRef
+        def="ABContactAnalysisDV(anABContact)"/>
+    </Card>
+    <Card
+      id="Coverables"
+      title="DisplayKey.get(&quot;Proyecto.Coverable&quot;)">
+      <PanelRef
+        def="ABContactCoverableDV(anABContact)"/>
+    </Card>
+    <Card
+      id="PolizaID"
+      title="&quot;P&#243;lizas&quot;">
+      <DetailViewPanel>
+        <InputColumn>
+          <TextInput
+            id="StatusPoliza"
+            label="DisplayKey.get(&quot;Contact.ActiveStatus&quot;)"
+            value="if(anABContact.Poliza.Activada == true){return &quot;ACTIVA&quot;}else{return &quot;Pendiente&quot;}"
+            visible="true"/>
+          <TextInput
+            id="PolicyNumber"
+            label="DisplayKey.get(&quot;Contact.PolicyNumber&quot;)"
+            value="anABContact.Poliza.GeneratePolicyID(anABContact)"
+            valueType="java.lang.Integer"
+            visible="true"/>
+          <DateInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="EffectiveDAtePolicy"
+            label="DisplayKey.get(&quot;Contact.EffectiveDate&quot;)"
+            value="anABContact.Poliza.FechaEfectiva">
+            <PostOnChange/>
+          </DateInput>
+          <TextInput
+            id="Edad"
+            label="DisplayKey.get(&quot;Contact.Age&quot;)"
+            value="(anABContact as ABPerson).AgeReal"
+            visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
+          <TextInput
+            id="CreditScore"
+            label="DisplayKey.get(&quot;Training.CreditScore&quot;)"
+            value="acmelab.ta.webservice.contact.CreditScoreWS.setContactCreditScore(anABContact.RUT)"
+            valueType="java.lang.Integer"
+            visible="true"/>
+          <TypeKeyInput
+            editable="false  "
+            id="CoverableTypeID2"
+            label="DisplayKey.get(&quot;Contact.CoverableType&quot;)"
+            value="anABContact.Coverable.TypeCoverable"
+            valueType="typekey.CoverableType"
+            visible="true">
+            <PostOnChange/>
+          </TypeKeyInput>
+          <TextInput
+            formatType="currency"
+            id="CoverableCosto"
+            label="DisplayKey.get(&quot;Contact.CoverableCost&quot;)"
+            value="anABContact.Coverable.CoverableCost"
+            valueType="java.lang.Integer"
+            visible="if(anABContact.Coverable.CoverableCost != null){return true}else{return false}"/>
+        </InputColumn>
+        <InputColumn>
+          <Label
+            id="DetailAgeID"
+            label="&quot;Factor de Edad&quot;"
+            visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
+          <TextInput
+            id="AgeFacorID"
+            label="&quot;Porcentaje: &quot;"
+            value="(anABContact as ABPerson).AgeFactor"
+            visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
+          <InputDivider/>
+          <Label
+            id="CreditScoreDetailID"
+            label="&quot;Factor de Cr&#233;dito&quot;"/>
+          <TextInput
+            id="creditScore2ID"
+            label="&quot;Porcentaje: &quot;"
+            value="anABContact.CreditScoreDetail"/>
+        </InputColumn>
+      </DetailViewPanel>
+      <DetailViewPanel>
+        <InputColumn>
+          <Label
+            label="&quot;Coberturas Para Auto&quot;"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="DamageAgainstOthersID"
+            label="DisplayKey.get(&quot;Contact.DamageAgainstOthers&quot;)"
+            value="anABContact.Poliza.CoverageExt.DamageAgainstOthers"
+            valueType="java.lang.Boolean "
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="CrushesID"
+            label="DisplayKey.get(&quot;Contact.Crushes&quot;)"
+            value="anABContact.Poliza.CoverageExt.Crushes"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="AccidentsID"
+            label="DisplayKey.get(&quot;Contact.Accidents&quot;)"
+            value="anABContact.Poliza.CoverageExt.Accidents"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="WinterTiresID"
+            label="DisplayKey.get(&quot;Contact.WinterTires&quot;)"
+            value="anABContact.Poliza.CoverageExt.WinterTires"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="ElectricalSystemsID"
+            label="DisplayKey.get(&quot;Contact.ElectricalSytems&quot;)"
+            value="anABContact.Poliza.CoverageExt.ElectricalSystems"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <Label/>
+        </InputColumn>
+      </DetailViewPanel>
+      <DetailViewPanel>
+        <InputColumn>
+          <Label
+            label="&quot;Coberturas Para Propiedades&quot;"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="BaseID"
+            label="&quot;Base&quot;"
+            value="anABContact.Poliza.CoverageExt.Base"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="PersonalBelongingsID"
+            label="DisplayKey.get(&quot;Contact.PersonalBelongings&quot;)"
+            value="anABContact.Poliza.CoverageExt.PersonalBelongings"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="EarthquakesID"
+            label="DisplayKey.get(&quot;Contact.Earthquakes&quot;)"
+            value="anABContact.Poliza.CoverageExt.Earthquakes"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="FiresID"
+            label="DisplayKey.get(&quot;Contact.Fires&quot;)"
+            value="anABContact.Poliza.CoverageExt.Fires"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="FloodingID"
+            label="DisplayKey.get(&quot;Contact.Flooding&quot;)"
+            value="anABContact.Poliza.CoverageExt.Flooding"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+        </InputColumn>
+        <InputColumn>
+          <Label
+            id="kcdnckl"
+            label="&quot;Porcentajes de Cobertura&quot;"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <TextInput
+            formatType="general"
+            id="BASESID"
+            label="&quot;Base:&quot;"
+            outputConversion="Coverage_Ext.valueOfBaseS().toString() + &quot;%&quot;"
+            value="Coverage_Ext.valueOfBaseS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <TextInput
+            formatType="general"
+            id="BIENESID"
+            label="&quot;Bienes Personales:&quot;"
+            outputConversion="Coverage_Ext.valueOfPersonalBelongingsS().toString() + &quot;%&quot;"
+            value="Coverage_Ext.valueOfPersonalBelongingsS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <TextInput
+            formatType="general"
+            id="EARTHSID"
+            label="&quot;Terremotos:&quot;"
+            outputConversion="Coverage_Ext.valueOfEarthquakesS().toString() + &quot;%&quot;"
+            value="Coverage_Ext.valueOfEarthquakesS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <TextInput
+            formatType="general"
+            id="FIREID"
+            label="&quot;Incendios:&quot;"
+            outputConversion="Coverage_Ext.valueOfFiresS().toString() + &quot;%&quot;"
+            value="Coverage_Ext.valueOfFiresS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <TextInput
+            formatType="general"
+            id="FLOODID"
+            label="&quot;Innundaciones:&quot;"
+            outputConversion="Coverage_Ext.valueOfFloodingS().toString() + &quot;%&quot;"
+            value="Coverage_Ext.valueOfFloodingS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <InputDivider
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+          <TextInput
+            formatType="general"
+            id="DamageAgainstOthersPercentID"
+            label="DisplayKey.get(&quot;Contact.DamageAgainstOthers&quot;)"
+            outputConversion="Coverage_Ext.valueOfDamagesS().toString() + &quot;%&quot;"
+            value="Coverage_Ext.valueOfDamagesS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <InputDivider
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <TextInput
+            formatType="general"
+            id="CRUSHID"
+            label="DisplayKey.get(&quot;Contact.Crushes&quot;)"
+            outputConversion="Coverage_Ext.valueOfCrushesS().toString() + &quot;%&quot;"
+            value="Coverage_Ext.valueOfCrushesS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <InputDivider
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <TextInput
+            formatType="general"
+            id="AccidentPercentID"
+            label="DisplayKey.get(&quot;Contact.Accidents&quot;)"
+            outputConversion="Coverage_Ext.valueOfAccidentsS().toString() + &quot;%&quot;"
+            value="Coverage_Ext.valueOfAccidentsS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <InputDivider
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <TextInput
+            formatType="general"
+            id="WinterTiresPercentID"
+            label="DisplayKey.get(&quot;Contact.WinterTires&quot;)"
+            outputConversion="Coverage_Ext.valueOfWinterTiresS().toString() + &quot;%&quot;"
+            value="Coverage_Ext.valueOfWinterTiresS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <InputDivider
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <TextInput
+            formatType="general"
+            id="ElectricSistemPercentID"
+            label="DisplayKey.get(&quot;Contact.ElectricalSytems&quot;)"
+            outputConversion="Coverage_Ext.valueOfElectricalSystemsS().toString() + &quot;%&quot;"
+            value="Coverage_Ext.valueOfElectricalSystemsS()"
+            valueType="java.math.BigDecimal"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <InputDivider/>
+        </InputColumn>
+      </DetailViewPanel>
+      <DetailViewPanel>
+        <InputColumn>
+          <TextInput
+            formatType="currency"
+            id="PrimaEnhancement"
+            label="DisplayKey.get(&quot;Contact.Prime&quot;)"
+            value="anABContact.CalculoPrima"
+            visible="true"/>
+          <ButtonInput
+            action="anABContact.activarPoliza();"
+            available="if(anABContact.CalculoPrima == &quot;&quot;){return false}else{return true}"
+            id="btnActivar"
+            label="DisplayKey.get(&quot;Contact.Activate&quot;)"
+            value="DisplayKey.get(&quot;Contact.Activate&quot;)//anABContact.Poliza.Activada as String"
+            visible="if(InEditMode){if(anABContact.Poliza.Activada == true || anABContact.Poliza.FechaEfectiva == null ||anABContact.Coverable.CoverableCost == null || anABContact.CreditScore &lt;= 300 || anABContact.CalculoPrima == &quot;0&quot; ){return false}else{return true}}else{return false}"></ButtonInput>
+          <ButtonInput
+            action="anABContact.desactivarPoliza()"
+            id="btnDesactivar"
+            label="DisplayKey.get(&quot;Contact.Disable&quot;)"
+            value="DisplayKey.get(&quot;Contact.Disable&quot;) //anABContact.Poliza.Activada as String"
+            visible="if(InEditMode){if(anABContact.Poliza.Activada != true || anABContact.Coverable.CoverableCost == null || anABContact.CreditScore &lt;= 300){return false}else{return true}}else{return false}"/>
+        </InputColumn>
+      </DetailViewPanel>
+    </Card>
+    <Card
+      id="Coveragesid"
+      title="DisplayKey.get(&quot;Proyecto.Coverages&quot;)"
+      __disabled="true">
+      <DetailViewPanel>
+        <InputColumn>
+          <Label
+            label="&quot;Car Coverages&quot;"/>
+        </InputColumn>
+      </DetailViewPanel>
+      <DetailViewPanel>
+        <InputColumn>
+          <Label
+            label="&quot;Dwelling Coverages&quot;"/>
+        </InputColumn>
+      </DetailViewPanel>
+    </Card>
+  </CardViewPanel>
+</PCF>

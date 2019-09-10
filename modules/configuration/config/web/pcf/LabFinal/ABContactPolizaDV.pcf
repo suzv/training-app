@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../pcf.xsd">
+  <DetailViewPanel
+    id="ABContactPolizaDV">
+    <Require
+      name="anABContact"
+      type="ABContact"/>
+    <Variable
+      initialValue="(anABContact.Coverable != null)?anABContact.Coverable:anABContact.Coverable"
+      name="anCoverable"
+      type="Coverable_Ext"/>
+    <InputColumn>
+      <RangeInput
+        editable="true"
+        id="ContactTier"
+        label="&quot;Contact Tier&quot;"
+        value="anABContact.ContactTier"
+        valueRange="typekey.ContactTier.AllTypeKeys"
+        valueType="typekey.ContactTier"
+        visible="false"/>
+      <TextInput
+        id="ContactName"
+        label="&quot;Contact Name&quot;"
+        value="anABContact.DisplayName"
+        valueType="java.lang.String"
+        visible="true"/>
+      <InputDivider/>
+      <TextInput
+        editable="true"
+        id="CoverableAutoLicensePlate"
+        label="&quot;License Plate&quot;"
+        value="anABContact.Coverable.LicensePlate"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+      <BooleanRadioInput
+        editable="true"
+        id="CoverableAutoWinterTires"
+        label="&quot;Winter Tires&quot;"
+        value="anABContact.Coverable.WinterTires"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+      <InputDivider
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+      <TypeKeyInput
+        editable="true"
+        id="CoverableDwellingRoof"
+        label="&quot;Roof Type&quot;"
+        value="anABContact.Coverable.RoofType"
+        valueType="typekey.RoofType_Ext"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
+        <PostOnChange/>
+      </TypeKeyInput>
+    </InputColumn>
+  </DetailViewPanel>
+</PCF>

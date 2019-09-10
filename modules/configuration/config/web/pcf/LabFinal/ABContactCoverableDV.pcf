@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../pcf.xsd">
+  <DetailViewPanel
+    id="ABContactCoverableDV">
+    <Require
+      name="anABContact"
+      type="ABContact"/>
+    <Variable
+      initialValue="(anABContact.Coverable != null)?anABContact.Coverable:anABContact.Coverable"
+      name="anCoverable"
+      type="Coverable_Ext"/>
+    <InputColumn>
+      <RangeInput
+        editable="true"
+        id="ContactTier"
+        label="&quot;Contact Tier&quot;"
+        value="anABContact.ContactTier"
+        valueRange="typekey.ContactTier.AllTypeKeys"
+        valueType="typekey.ContactTier"
+        visible="false"/>
+      <TextInput
+        id="ContactName"
+        label="DisplayKey.get(&quot;Contact.Name&quot;)"
+        value="anABContact.DisplayName"
+        valueType="java.lang.String"
+        visible="true"/>
+      <TypeKeyInput
+        editable="true"
+        id="CoverableType"
+        label="DisplayKey.get(&quot;Contact.CoverableType&quot;)"
+        required="true"
+        value="anABContact.Coverable.TypeCoverable"
+        valueType="typekey.CoverableType"
+        visible="true">
+        <PostOnChange
+          onChange="anABContact.Coverable.LicensePlate = null anABContact.Coverable.Brand = null anABContact.Coverable.Model = null anABContact.Coverable.Year = null anABContact.Coverable.WinterTires = null anABContact.Coverable.Color = null anABContact.Coverable.RoofType = null anABContact.Coverable.HeatingType = null anABContact.Coverable.ConstructionMaterial = null anABContact.Coverable.OccupationType = null anABContact.Coverable.Meters = null anABContact.Poliza.CoverageExt.DamageAgainstOthers = null anABContact.Poliza.CoverageExt.Crushes = null anABContact.Poliza.CoverageExt.Accidents = null anABContact.Poliza.CoverageExt.WinterTires = null anABContact.Poliza.CoverageExt.ElectricalSystems = null anABContact.Poliza.CoverageExt.Base = null anABContact.Poliza.CoverageExt.PersonalBelongings = null anABContact.Poliza.CoverageExt.Earthquakes = null anABContact.Poliza.CoverageExt.Fires = null anABContact.Poliza.CoverageExt.Flooding = null anABContact.Poliza.Activada = null anABContact.Poliza.FechaEfectiva = null"/>
+      </TypeKeyInput>
+      <TextInput
+        editable="true"
+        formatType="exactNumber"
+        id="CoverableCosto"
+        label="DisplayKey.get(&quot;Contact.CoverableCost&quot;)"
+        required="true"
+        value="anABContact.Coverable.CoverableCost"
+        valueType="java.lang.Integer"
+        visible="true"/>
+      <InputDivider/>
+      <TextInput
+        editable="true"
+        id="CoverableAutoLicensePlate"
+        label="DisplayKey.get(&quot;Contact.LicensePlate&quot;)"
+        required="true"
+        value="anABContact.Coverable.LicensePlate"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"></TextInput>
+      <TextInput
+        editable="true"
+        id="CoverableAutoBrand"
+        label="DisplayKey.get(&quot;Contact.Brand&quot;)"
+        required="true"
+        value="anABContact.Coverable.Brand"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+      <TextInput
+        editable="true"
+        id="CoverableAutoModel"
+        label="DisplayKey.get(&quot;Contact.Model&quot;)"
+        required="true"
+        value="anABContact.Coverable.Model"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+      <TextInput
+        editable="true"
+        id="CoverableAutoYear"
+        label="DisplayKey.get(&quot;Contact.Year&quot;)"
+        required="true"
+        value="anABContact.Coverable.Year"
+        valueType="java.lang.Integer"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+      <BooleanRadioInput
+        editable="true"
+        id="CoverableAutoWinterTires"
+        label="DisplayKey.get(&quot;Contact.WinterTires&quot;)"
+        required="true"
+        value="anABContact.Coverable.WinterTires"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+      <TextInput
+        editable="true"
+        id="CoverableAutoColor"
+        label="DisplayKey.get(&quot;Contact.Color&quot;)"
+        required="true"
+        value="anABContact.Coverable.Color"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+      <InputDivider
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+      <TypeKeyInput
+        editable="true"
+        id="CoverableDwellingRoof"
+        label="DisplayKey.get(&quot;Contact.RoofType&quot;)"
+        required="true"
+        value="anABContact.Coverable.RoofType"
+        valueType="typekey.RoofType_Ext"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
+        <PostOnChange/>
+      </TypeKeyInput>
+      <TypeKeyInput
+        editable="true"
+        id="CoverableDwellingHeating"
+        label="DisplayKey.get(&quot;Contact.HeatingType&quot;)"
+        required="true"
+        value="anABContact.Coverable.HeatingType"
+        valueType="typekey.HeatingType_Ext"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
+        <PostOnChange/>
+      </TypeKeyInput>
+      <TypeKeyInput
+        editable="true"
+        id="CoverableDwellingConstructionMaterial"
+        label="DisplayKey.get(&quot;Contact.ConstructionMaterial&quot;)"
+        required="true"
+        value="anABContact.Coverable.ConstructionMaterial"
+        valueType="typekey.ConstructionMaterial_Ext"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
+        <PostOnChange/>
+      </TypeKeyInput>
+      <TypeKeyInput
+        editable="true"
+        id="CoverableDwellingOcupationType"
+        label="DisplayKey.get(&quot;Contact.OccupationType&quot;)"
+        required="true"
+        value="anABContact.Coverable.OccupationType"
+        valueType="typekey.OccupationType_Ext"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
+        <PostOnChange/>
+      </TypeKeyInput>
+      <TextInput
+        editable="true"
+        id="CoverableDwellingMeters"
+        label="DisplayKey.get(&quot;Contact.Meters&quot;)"
+        required="true"
+        value="anABContact.Coverable.Meters"
+        valueType="java.lang.Integer"
+        visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+    </InputColumn>
+  </DetailViewPanel>
+</PCF>
