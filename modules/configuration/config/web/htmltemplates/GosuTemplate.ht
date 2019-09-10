@@ -1,3 +1,0 @@
-<div id="${renderId}" class="gw-hidden">
-    ${gosuTemplateContent}
-</div>

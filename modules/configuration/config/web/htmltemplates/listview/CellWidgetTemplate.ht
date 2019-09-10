@@ -1,5 +1,0 @@
-<div ${innerCellClasses} ${innerCellStyles}>
-    <div :wrapIf="isMultipleContentCell" class="gw-multi-content-cell">
-        ${:children}
-    </div>
-</div>

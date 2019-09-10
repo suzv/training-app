@@ -1,8 +1,0 @@
-{
-    Name,
-    DateOfBirth,
-    Gender,
-    PrimaryAddress {
-        AddressType
-    }
-}

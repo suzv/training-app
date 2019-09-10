@@ -1,1 +1,0 @@
-<pre class="gw-PreFormattedTextValueWidget--inner ${reflectionApplies ? 'gw-value-reflector'}" ${systemAttributes}>${currentValue}</pre>

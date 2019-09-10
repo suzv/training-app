@@ -1,3 +1,0 @@
-<div id="${renderId}" class="gw-StyleContainer--CenterPanelTop">
-  ${:children}
-</div>

@@ -1,3 +1,0 @@
-<div class="gw-actionBooleanValue gw-BooleanValue" data-gw-click="fireEvent id:${renderId}">
-  ${icon}
-</div>

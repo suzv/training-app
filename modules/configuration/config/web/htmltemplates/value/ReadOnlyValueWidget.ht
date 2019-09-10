@@ -1,3 +1,0 @@
-<div class="gw-value-readonly-wrapper${reflectionApplies ? ' gw-value-reflector'}" ${systemAttributes} style="${height}">
-  ${currentValue}
-</div>

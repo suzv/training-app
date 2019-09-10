@@ -1,3 +1,0 @@
-<div class="gw-menu-col gw-menu-col-idx-${index}">
-  ${:children}
-</div>

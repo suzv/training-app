@@ -1,4 +1,0 @@
-<div class="gw-LinkWithArgWidget">
-    <div :if="argLabel" class="gw-LinkWithArgWidget--label">${argLabel}</div>
-    ${:children}
-</div>

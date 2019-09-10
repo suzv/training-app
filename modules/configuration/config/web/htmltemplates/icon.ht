@@ -1,1 +1,0 @@
-<span ${classBuilder} ${attrBuilder} ${styleBuilder}></span>

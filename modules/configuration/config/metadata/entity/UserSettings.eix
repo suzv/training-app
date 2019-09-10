@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<internalExtension
-  xmlns="http://guidewire.com/datamodel"
-  entityName="UserSettings">
-  <description>User settings</description>
-  <events/>
-</internalExtension>

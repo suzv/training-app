@@ -1,3 +1,0 @@
-trn.ta.contact-1.0
-trn.ta.contactnote-1.0
-trn.ta.address-1.0

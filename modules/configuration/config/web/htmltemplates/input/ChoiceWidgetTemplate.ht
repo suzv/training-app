@@ -1,4 +1,0 @@
-${choiceRadio}
-<div class="gw-ChoiceWidget--children">
-  ${:children}
-</div>

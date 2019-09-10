@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<plugin
-  interface="PersonalDataDestruction"
-  name="PersonalDataDestruction">
-  <plugin-gosu
-    gosuclass="gw.plugin.personaldata.ABPersonalDataDestructionSafePlugin"/>
-</plugin>
