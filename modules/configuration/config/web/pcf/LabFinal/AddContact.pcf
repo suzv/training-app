@@ -18,13 +18,17 @@
       <Variable
         name="parentContact"
         type="ABContact"/>
+      <Variable
+        initialValue="false"
+        name="createdContact"
+        type="Boolean"/>
       <Toolbar>
         <ToolbarButton
-          action="AddContactPopup.push(entity.ABPerson, parentContact)"
+          action="AddContactPopup.push(entity.ABPerson, parentContact);"
           id="addPerson"
           label="DisplayKey.get(&quot;Contact.AddPerson&quot;)"/>
         <ToolbarButton
-          action="AddContactPopup.push(entity.ABCompany, parentContact)"
+          action="AddContactPopup.push(entity.ABCompany, parentContact);"
           id="addCompany"
           label="DisplayKey.get(&quot;Contact.AddCompany&quot;)"/>
       </Toolbar>

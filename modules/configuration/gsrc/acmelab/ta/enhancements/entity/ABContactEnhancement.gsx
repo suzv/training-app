@@ -1,5 +1,8 @@
 package acmelab.ta.enhancements.entity
 
+uses gw.api.util.DisplayableException
+uses gw.api.util.LocationUtil
+
 uses java.math.BigDecimal
 
 enhancement ABContactEnhancement : ABContact {
@@ -9,7 +12,7 @@ enhancement ABContactEnhancement : ABContact {
     if (this.Coverable.CoverableCost != null) {
       //FACTORES QUE AFECTAN EL VALOR DE LA POLIZA
       var costoInicial = this.Coverable.CoverableCost as double
-      var creditScore = 505 //acmelab.ta.webservice.contact.CreditScoreWS.setContactCreditScore(this.RUT)
+      var creditScore = 550 //acmelab.ta.webservice.contact.CreditScoreWS.setContactCreditScore(this.RUT)
       var totalPrimaCoverage : double = 0
       var totalPrimaCalculada : double = 0
       var totalPrimaCreditScore : double = 0
@@ -133,5 +136,9 @@ enhancement ABContactEnhancement : ABContact {
     if (this.Poliza.Activada == true) {
       this.Poliza.Activada = false
     }
+  }
+
+  function mostrarLabel(variable: boolean, location: LocationUtil) : void{
+    location.addRequestScopedInfoMessage("Prueba")
   }
 }

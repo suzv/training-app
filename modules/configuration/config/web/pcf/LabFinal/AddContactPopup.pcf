@@ -4,7 +4,7 @@
   xsi:noNamespaceSchemaLocation="../../../../../pcf.xsd">
   <Popup
     afterCancel="root = new gw.api.tree.RowTreeRootNode(contactDetailsVendorHelper.getAllRows(), \ss -&gt;  contactDetailsVendorHelper.getChildren(ss as gw.web.ContactDetailsVendorHelper.ServiceRow), \ss -&gt; true)"
-    afterCommit="root = new gw.api.tree.RowTreeRootNode(contactDetailsVendorHelper.getAllRows(), \ss -&gt;  contactDetailsVendorHelper.getChildren(ss as gw.web.ContactDetailsVendorHelper.ServiceRow), \ss -&gt; true)"
+    afterCommit="root = new gw.api.tree.RowTreeRootNode(contactDetailsVendorHelper.getAllRows(), \ss -&gt;  contactDetailsVendorHelper.getChildren(ss as gw.web.ContactDetailsVendorHelper.ServiceRow), \ss -&gt; true); metodo(true, contact)"
     afterEnter="contact.addDefaultTagToNewContact()"
     canEdit="true"
     canVisit="perm.ABContact.create(ContactType) and ContactTagType.userHasCreatePermissionForAtLeastOneContactTagType()"
@@ -36,7 +36,16 @@
       initialValue="new gw.api.tree.RowTreeRootNode(contactDetailsVendorHelper.getAllRows(), \ss -&gt;  contactDetailsVendorHelper.getChildren(ss as gw.web.ContactDetailsVendorHelper.ServiceRow), \ss -&gt; true)"
       name="root"
       type="gw.api.tree.RowTreeRootNode"/>
+    <Variable
+      initialValue="false"
+      name="createdContact"
+      type="Boolean"/>
     <ScreenRef
       def="ABContactDetailScreen(contact, true)"/>
+    <Code>uses gw.api.util.LocationUtil
+
+    function metodo(mensaje : boolean, abContact: ABContact) {
+      LocationUtil.addRequestScopedInfoMessage("Contacto " + abContact.DisplayName +  " creado con exito")
+    }</Code>
   </Popup>
 </PCF>

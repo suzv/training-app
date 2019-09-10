@@ -63,7 +63,7 @@
             id="StatusPoliza"
             label="DisplayKey.get(&quot;Contact.ActiveStatus&quot;)"
             value="if(anABContact.Poliza.Activada == true){return &quot;ACTIVA&quot;}else{return &quot;Pendiente&quot;}"
-            visible="if(anABContact typeis ABPerson){return true}else{return false}"/>
+            visible="true"/>
           <TextInput
             id="PolicyNumber"
             label="DisplayKey.get(&quot;Contact.PolicyNumber&quot;)"
@@ -318,18 +318,17 @@
             visible="true"/>
           <ButtonInput
             action="anABContact.activarPoliza()"
-            available="if(anABContact.Poliza.Activada == true || anABContact.Coverable.TypeCoverable == null){return false}else{return true}"
             id="btnActivar"
             label="DisplayKey.get(&quot;Contact.Activate&quot;)"
             value="DisplayKey.get(&quot;Contact.Activate&quot;)//anABContact.Poliza.Activada as String"
-            visible="true"/>
+            visible="if(InEditMode){if(anABContact.Poliza.Activada == true || anABContact.Coverable.TypeCoverable == null || acmelab.ta.webservice.contact.CreditScoreWS.setContactCreditScore(anABContact.RUT) &lt;= 300){return false}else{return true}}else{return false}"/>
           <ButtonInput
             action="anABContact.desactivarPoliza()"
-            available="if(anABContact.Poliza.Activada == true){return true}else{return false}"
+            available="if(InEditMode){if(anABContact.Poliza.Activada == false || anABContact.Coverable.TypeCoverable == null || acmelab.ta.webservice.contact.CreditScoreWS.setContactCreditScore(anABContact.RUT) &lt;= 300){return false}else{return true}}else{return false}"
             id="btnDesactivar"
             label="DisplayKey.get(&quot;Contact.Disable&quot;)"
             value="DisplayKey.get(&quot;Contact.Disable&quot;) //anABContact.Poliza.Activada as String"
-            visible="if(anABContact.Poliza.Activada == true){return true}else{return false}"/>
+            visible="if(InEditMode){if(anABContact.Poliza.Activada == false || anABContact.Coverable.TypeCoverable == null || acmelab.ta.webservice.contact.CreditScoreWS.setContactCreditScore(anABContact.RUT) &lt;= 300){return false}else{return true}}else{return false}"/>
         </InputColumn>
       </DetailViewPanel>
     </Card>
