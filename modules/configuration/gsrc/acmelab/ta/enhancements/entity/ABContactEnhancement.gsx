@@ -1,5 +1,6 @@
 package acmelab.ta.enhancements.entity
 
+uses gw.api.system.database.SequenceUtil
 uses gw.api.util.DisplayableException
 uses gw.api.util.LocationUtil
 
@@ -118,27 +119,42 @@ enhancement ABContactEnhancement : ABContact {
       //if (this typeis ABCompany)
       //{
 
-        var primaTotalCompany = totalPrimaCoverage + totalPrimaCreditScore
+      var primaTotalCompany = totalPrimaCoverage + totalPrimaCreditScore
 
-        return primaTotalCompany as Integer as String
+      return primaTotalCompany as Integer as String
       //}
     }
     return "Unknown"
   }
 
+
   function activarPoliza() : void {
-    if (this.Poliza.Activada != true) {
-      this.Poliza.Activada = true
-    }
+    this.Poliza.Activada = true
   }
 
   function desactivarPoliza() : void {
-    if (this.Poliza.Activada == true) {
       this.Poliza.Activada = false
-    }
   }
 
   function mostrarLabel(variable: boolean, location: LocationUtil) : void{
     location.addRequestScopedInfoMessage("Prueba")
   }
+
+  property get CreditScoreDetail() : String {
+    if (this.CreditScore >= 0 && this.CreditScore <= 300 ){
+      return "Se rechaza la póliza"
+    }
+    if (this.CreditScore >= 301 && this.CreditScore <= 500 ){
+      return "0.75%"
+    }
+    if (this.CreditScore >= 501 && this.CreditScore <= 700 ){
+      return "0.25%"
+    }
+    if (this.CreditScore >= 701 && this.CreditScore <= 999 ){
+      return "-0.25%"
+    }
+    return "Error"
+  }
+
+
 }
