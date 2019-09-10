@@ -59,7 +59,7 @@
       label="DisplayKey.get(&quot;Web.AddressBook.AddressInputSet.Address2&quot;)"
       required="addressOwner.isRequired(gw.api.address.AddressOwnerFieldId.ADDRESSLINE2)"
       value="addressOwner.AddressDelegate.AddressLine2"
-      visible="false"/>
+      visible="addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.ADDRESSLINE2)"/>
     <TextInput
       available="addressOwner.isAvailable(gw.api.address.AddressOwnerFieldId.ADDRESSLINE3)"
       editable="addressOwner.isEditable(gw.api.address.AddressOwnerFieldId.ADDRESSLINE3)"
@@ -67,7 +67,7 @@
       label="DisplayKey.get(&quot;Web.AddressBook.AddressInputSet.Address3&quot;)"
       required="addressOwner.isRequired(gw.api.address.AddressOwnerFieldId.ADDRESSLINE3)"
       value="addressOwner.AddressDelegate.AddressLine3"
-      visible="false"/>
+      visible="addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.ADDRESSLINE3)"/>
     <AddressAutoFillInput
       action="gw.api.contact.AddressAutocompleteUtil.autofillAddress(addressOwner.AddressDelegate, &quot;PostalCode&quot;)"
       actionAvailable="addressOwner.AutofillIconEnabled"
@@ -83,7 +83,7 @@
       tooltip="addressOwner.AutofillIconEnabled ? DisplayKey.get(&quot;AutoFill.Override&quot;) : &quot;&quot;"
       validationExpression="gw.api.contact.AddressAutocompleteUtil.validate(addressOwner.AddressDelegate, &quot;PostalCode&quot;, gw.api.address.AddressCountrySettings.getSettings(addressOwner.SelectedCountry).PostalCodeLabel)"
       value="addressOwner.AddressDelegate.PostalCode"
-      visible="true">
+      visible="addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.POSTALCODE)">
       <PostOnChange
         onChange="if (addressOwner.AutofillEnabled) gw.api.contact.AddressAutocompleteUtil.autofillAddress(addressOwner.AddressDelegate, &quot;PostalCode&quot;, false)"
         target="globalAddressContainer"/>
@@ -113,7 +113,7 @@
       label="DisplayKey.get(&quot;Web.AddressBook.AddressInputSet.CEDEX&quot;)"
       required="addressOwner.isRequired(gw.api.address.AddressOwnerFieldId.CEDEX)"
       value="addressOwner.AddressDelegate.CEDEX"
-      visible="false">
+      visible="addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.CEDEX)">
       <PostOnChange
         onChange="if (not addressOwner.AddressDelegate.CEDEX) addressOwner.AddressDelegate.CEDEXBureau = null"
         target="CEDEXBureau"/>
@@ -125,6 +125,6 @@
       label="DisplayKey.get(&quot;Web.AddressBook.AddressInputSet.CEDEXBureau&quot;)"
       required="addressOwner.isRequired(gw.api.address.AddressOwnerFieldId.CEDEXBUREAU)"
       value="addressOwner.AddressDelegate.CEDEXBureau"
-      visible="false"/>
+      visible="addressOwner.AddressDelegate.CEDEX and addressOwner.isVisible(gw.api.address.AddressOwnerFieldId.CEDEXBUREAU)"/>
   </InputSet>
 </PCF>

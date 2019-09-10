@@ -13,9 +13,5 @@
       label="DisplayKey.get(&quot;Web.Contacts.Search&quot;)"
       location="ABContactSearch()"
       shortcut="H"/>
-    <LocationRef
-      label="DisplayKey.get(&quot;Web.Contacts.EPICS&quot;)"
-      location="AddContact()"
-      shortcut="H"/>
   </LocationGroup>
 </PCF>

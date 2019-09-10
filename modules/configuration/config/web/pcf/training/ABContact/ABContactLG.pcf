@@ -15,39 +15,30 @@
       name="anABContact"
       type="ABContact"/>
     <LocationRef
-      label="DisplayKey.get(&quot;Contact.Summary&quot;)"
+      label="DisplayKey.get(&quot;Training.Summary&quot;)"
       location="ABContactSummaryPage(anABContact)"/>
     <LocationRef
-      location="ABPersonDetailsPage(anABContact)"
-      __disabled="true"/>
+      location="ABPersonDetailsPage(anABContact)"/>
     <LocationRef
-      location="ABCompanyDetailsPage(anABContact)"
-      __disabled="true"/>
+      location="ABCompanyDetailsPage(anABContact)"/>
     <LocationRef
-      location="ABPlaceDetailsPage(anABContact)"
-      __disabled="true"/>
+      location="ABPlaceDetailsPage(anABContact)"/>
     <LocationRef
       label="DisplayKey.get(&quot;Training.AddressesCount&quot;,anABContact.AllAddresses.length) "
-      location="ABContactAddressesPage(anABContact)"
-      __disabled="true"/>
+      location="ABContactAddressesPage(anABContact)"/>
     <LocationRef
       label="DisplayKey.get(&quot;Training.NotesCount&quot;, anABContact.ContactNotes.length)"
-      location="ABContactNotesPage(anABContact)"
-      __disabled="true"/>
+      location="ABContactNotesPage(anABContact)"/>
     <LocationRef
-      location="ABContactSocialMediaPage(anABContact)"
-      __disabled="true"/>
+      location="ABContactSocialMediaPage(anABContact)"/>
     <LocationRef
       label="DisplayKey.get(&quot;Training.Analysis&quot;)"
-      location="ABContactAnalysisPage(anABContact)"
-      __disabled="true"/>
+      location="ABContactAnalysisPage(anABContact)"/>
     <LocationRef
       label="DisplayKey.get(&quot;Training.InteractionsSidebar&quot;)"
-      location="ABContactInteractionsPage(anABContact)"
-      __disabled="true"/>
+      location="ABContactInteractionsPage(anABContact)"/>
     <LocationRef
       label="DisplayKey.get(&quot;Training.History&quot;)"
-      location="ABContactHistoryPage(anABContact)"
-      __disabled="true"/>
+      location="ABContactHistoryPage(anABContact)"/>
   </LocationGroup>
 </PCF>

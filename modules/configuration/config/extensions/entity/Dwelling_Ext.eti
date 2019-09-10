@@ -4,23 +4,23 @@
   entity="Dwelling_Ext"
   supertype="Coverable_Ext">
   <column
-    name="MetersS"
+    name="Metraje"
     nullok="true"
     type="integer"></column>
   <typekey
-    name="RoofTypeS"
+    name="TipoDeTecho"
     nullok="true"
-    typelist="RoofType_Ext"/>
+    typelist="TipoTecho_Ext"/>
   <typekey
-    name="HeatingTypeS"
+    name="TipoDeCalefaccion"
     nullok="true"
-    typelist="HeatingType_Ext"/>
+    typelist="Calefaccion_Ext"/>
   <typekey
-    name="ConstructionMaterialS"
+    name="MaterialDeConstruccion"
     nullok="true"
-    typelist="ConstructionMaterial_Ext"/>
+    typelist="MatConstruccion_Ext"/>
   <typekey
-    name="OccupationTypeS"
+    name="TipoDeOcupacion"
     nullok="true"
-    typelist="OccupationType_Ext"/>
+    typelist="Ocupacion_Ext"/>
 </subtype>

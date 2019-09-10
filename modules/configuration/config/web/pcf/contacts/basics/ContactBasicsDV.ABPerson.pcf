@@ -16,8 +16,7 @@
       initialValue="new gw.web.ContactDetailsVendorHelper(contact)"
       name="contactDetailsVendorHelper"
       type="gw.web.ContactDetailsVendorHelper"/>
-    <InputColumn
-      id="InputColUs">
+    <InputColumn>
       <TextInput
         boldLabel="true"
         boldValue="true"
@@ -29,95 +28,11 @@
         visible="contact.CreateStatus != ContactCreationApprovalStatus.TC_APPROVED"/>
       <Label
         label="contact.getSubtype().DisplayName"/>
-      <ABContactInput
-        editable="true"
-        forceContactSubtype="entity.ABPerson"
-        id="Guardian"
-        label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo.Guardian&quot;)"
-        newContactMenu="NewPersonOnlyPickerMenuItemSet"
-        parentContact="contact"
-        value="(contact as ABPerson).Guardian"
-        valueType="entity.ABPerson"
-        visible="false"/>
       <InputSetRef
         def="GlobalPersonNameInputSet(new gw.api.name.ContactNameOwner(new gw.api.name.ABPersonNameDelegate(contact as ABPerson)))"
-        mode="gw.api.name.NameLocaleSettings.PCFMode"
-        visible="true"/>
-      <InputDivider/>
-      <TypeKeyRadioInput
-        editable="true"
-        id="ContactNacionalidad"
-        label="DisplayKey.get(&quot;Contact.Nacionality&quot;)"
-        required="true"
-        value="contact.Nacionalidad"
-        valueType="typekey.Nacionalidad">
-        <PostOnChange/>
-      </TypeKeyRadioInput>
-      <TextInput
-        editable="true"
-        id="ContactRut"
-        label="&quot;RUT&quot;"
-        required="true"
-        validationExpression="if (acmelab.ta.webservice.contact.RutValidation.validate(contact.RUT)) {if (contact.isDuplicate(contact.RUT) == false){return null} else {return &quot;El RUT ingresado ya existe.&quot;} } else return &quot;El RUT no es valido.&quot;"
-        value="contact.RUT"
-        visible="if(contact.Nacionalidad == Nacionalidad.TC_CHILE){return true}else{return false}"/>
-      <TextInput
-        editable="true"
-        id="ContactPassport"
-        label="DisplayKey.get(&quot;Contact.Passport&quot;)"
-        required="true"
-        validationExpression="if (contact.isDuplicate(contact.RUT) == false){return null} else {return &quot;El RUT ingresado ya existe.&quot;}"
-        value="contact.RUT"
-        visible="if(contact.Nacionalidad == Nacionalidad.TC_EXTRANJERO){return true}else{return false}"/>
-      <InputDivider/>
-      <TextInput
-        editable="true"
-        id="ContactEmail"
-        label="&quot;Email&quot;"
-        required="true"
-        value="contact.EmailAddress1"
-        visible="true"/>
-      <InputDivider/>
-      <TypeKeyInput
-        editable="true"
-        id="CountrySelected"
-        label="DisplayKey.get(&quot;Contact.Pais&quot;)"
-        required="true"
-        value="contact.CountrySel"
-        valueType="typekey.Country"
-        visible="true">
-        <PostOnChange
-          target="ContactRegion"/>
-      </TypeKeyInput>
-      <TypeKeyInput
-        editable="true"
-        id="ContactRegion"
-        label="DisplayKey.get(&quot;Contact.Region&quot;)"
-        required="true"
-        value="contact.Region"
-        valueType="typekey.Regions_Ext"
-        visible="if(contact.CountrySel == Country.TC_CL){return true}else{return false}">
-        <PostOnChange/>
-      </TypeKeyInput>
-      <TextInput
-        editable="true"
-        id="ContactDireccion"
-        label="DisplayKey.get(&quot;Contact.Address&quot;)"
-        required="true"
-        value="contact.Direccion"
-        visible="if(contact.CountrySel == null){return false}else{return true}"/>
-      <TextInput
-        editable="true"
-        id="ContactCodigoPostal"
-        label="DisplayKey.get(&quot;Contact.PostalCode&quot;)"
-        regex="&quot;[0-9]{7}&quot;"
-        required="true"
-        value="contact.CodigoPostal"
-        visible="if(contact.CountrySel == null){return false}else{return true}">
-        <PostOnChange/>
-      </TextInput>
+        mode="gw.api.name.NameLocaleSettings.PCFMode"/>
       <InputSet
-        visible="false">
+        visible="isPersonOnly(contact)">
         <TextInput
           editable="true"
           id="FormerName"
@@ -143,22 +58,21 @@
         visible="contactDetailsVendorHelper.ShowVendorUnavailableMessage"/>
       <InputDivider/>
       <InputSetRef
-        def="PrimaryAddressInputSet((contact as ABPerson))"
-        visible="false"/>
+        def="PrimaryAddressInputSet((contact as ABPerson))"/>
       <InputDivider
         visible="hasCategoryScores or (contact.Score != null)"/>
       <Label
         label="DisplayKey.get(&quot;Web.Reviews.ReviewPerformance&quot;)"
-        visible="false"/>
+        visible="hasCategoryScores or (contact.Score != null)"/>
       <TextInput
         id="score"
         label="DisplayKey.get(&quot;Web.Reviews.OverallScore&quot;)"
         value="contact.Score"
         valueType="java.lang.Integer"
-        visible="false"/>
+        visible="contact.Score != null"/>
       <ListViewInput
         label="DisplayKey.get(&quot;Web.Reviews.CategoryScores&quot;)"
-        visible="false">
+        visible="hasCategoryScores">
         <Toolbar/>
         <ListViewPanel
           id="CategoryScoresLV">
@@ -209,8 +123,7 @@
           encryptionExpression="(contact as ABPerson).maskTaxId(VALUE)"
           id="TaxID"
           label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo.TaxID&quot;)"
-          value="(contact as ABPerson).TaxID"
-          visible="false"/>
+          value="(contact as ABPerson).TaxID"/>
       </InputSet>
       <InputSet
         visible="isPersonOnly(contact)">
@@ -219,13 +132,11 @@
           id="TaxFilingStatus"
           label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo.TaxFilingStatus&quot;)"
           value="(contact as ABPerson).TaxFilingStatus"
-          valueType="typekey.TaxFilingStatusType"
-          visible="false"/>
+          valueType="typekey.TaxFilingStatusType"/>
         <DateInput
           editable="true"
           id="DateOfBirth"
           label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo.DateOfBirth&quot;)"
-          validationExpression="if (contact.isUnderAge((contact as ABPerson).DateOfBirth )) return &quot;No cumple con la mayor&#237;a de edad.&quot; else return null"
           value="(contact as ABPerson).DateOfBirth"/>
         <TypeKeyInput
           editable="true"
@@ -238,21 +149,27 @@
           id="MaritalStatus"
           label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo.MaritalStatus&quot;)"
           value="(contact as ABPerson).MaritalStatus"
-          valueType="typekey.MaritalStatus"
-          visible="false"/>
+          valueType="typekey.MaritalStatus"/>
+        <ABContactInput
+          editable="true"
+          forceContactSubtype="entity.ABPerson"
+          id="Guardian"
+          label="DisplayKey.get(&quot;Web.ContactDetail.AdditionalInfo.Guardian&quot;)"
+          newContactMenu="NewPersonOnlyPickerMenuItemSet"
+          parentContact="contact"
+          value="(contact as ABPerson).Guardian"
+          valueType="entity.ABPerson"/>
         <InputDivider/>
         <Label
-          label="DisplayKey.get(&quot;Web.ContactDetail.Company&quot;)"
-          visible="false"/>
+          label="DisplayKey.get(&quot;Web.ContactDetail.Company&quot;)"/>
         <TextInput
           editable="true"
           id="Occupation"
           label="DisplayKey.get(&quot;Web.ContactDetail.Company.Occupation&quot;)"
-          value="(contact as ABPerson).Occupation"
-          visible="false"/>
+          value="(contact as ABPerson).Occupation"/>
       </InputSet>
       <InputSet
-        visible="false">
+        visible="isPersonOnly(contact) or isAdjudicator(contact)">
         <ABContactInput
           editable="true"
           id="Organization"
@@ -263,15 +180,13 @@
       </InputSet>
       <InputSetRef
         def="ABPersonVendorSpecialtyInputSet(contact as ABPerson)"
-        mode="contact.Subtype"
-        visible="false"/>
+        mode="contact.Subtype"/>
       <InputSetRef
         def="ABPersonVendorInputSet(contact as ABPerson)"
-        mode="contact.Subtype"
-        visible="false"/>
+        mode="contact.Subtype"/>
       <InputDivider/>
       <InputSet
-        visible="false">
+        visible="isPersonOnly(contact)">
         <Label
           label="DisplayKey.get(&quot;Web.ContactDetail.DriversLicense&quot;)"/>
         <TextInput
@@ -294,8 +209,7 @@
         id="Notes"
         label="DisplayKey.get(&quot;Web.ContactDetail.Notes&quot;)"
         numRows="3"
-        value="(contact as ABPerson).Notes"
-        visible="false"/>
+        value="(contact as ABPerson).Notes"/>
     </InputColumn>
     <InputFooterSection>
       <InputDivider/>
@@ -303,8 +217,7 @@
         boldLabel="true"
         def="ContactEFTLV(contact)"
         label="DisplayKey.get(&quot;Web.ContactDetail.EFT&quot;)"
-        labelAbove="true"
-        visible="false">
+        labelAbove="true">
         <Toolbar>
           <IteratorButtons
             iterator="ContactEFTLV.ContactEFTLV"/>

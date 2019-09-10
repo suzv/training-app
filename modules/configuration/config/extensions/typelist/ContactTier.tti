@@ -23,4 +23,8 @@
     desc="Unknown"
     name="Unknown"
     priority="40"/>
+  <typecode
+    code="bronze"
+    name="Bronze"
+    priority="35"/>
 </typelist>

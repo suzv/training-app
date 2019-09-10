@@ -4,7 +4,7 @@
   entity="Auto_Ext"
   supertype="Coverable_Ext">
   <column
-    name="LicensePlateS"
+    name="Patente"
     nullok="true"
     type="varchar">
     <columnParam
@@ -12,7 +12,7 @@
       value="10"/>
   </column>
   <column
-    name="ModelS"
+    name="Modelo"
     nullok="true"
     type="varchar">
     <columnParam
@@ -20,11 +20,11 @@
       value="100"/>
   </column>
   <column
-    name="YearS"
+    name="Ano"
     nullok="true"
     type="integer"></column>
   <column
-    name="ColorS"
+    name="Color"
     nullok="true"
     type="varchar">
     <columnParam
@@ -32,15 +32,11 @@
       value="50"/>
   </column>
   <column
-    name="BrandS"
+    name="Marca"
     nullok="true"
     type="varchar">
     <columnParam
       name="size"
       value="40"/>
   </column>
-  <column
-    name="WinterTiresS"
-    nullok="true"
-    type="bit"/>
 </subtype>
