@@ -166,7 +166,13 @@
         label="DisplayKey.get(&quot;Training.CreditScore&quot;)"
         value="anABContact.CreditScore"
         valueType="java.lang.Integer"
-        visible="false"/>
+        visible="if(InEditMode){return true}else{return false}"/>
+      <ButtonInput
+        action="anABContact.GenerateCreditScore(anABContact)"
+        available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+        id="btnResetCreditScore"
+        value="DisplayKey.get(&quot;Contact.RecalculateCreditScore&quot;)"
+        visible="if(InEditMode){return true}else{return false}"/>
       <ListViewInput
         boldLabel="true"
         def="FlagEntriesLV(anABContact)"

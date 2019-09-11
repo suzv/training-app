@@ -8,13 +8,13 @@
     <Tab
       action="ABContacts.go()"
       id="SearchTab"
-      label="DisplayKey.get(&quot;Training.Search&quot;)"
+      label="DisplayKey.get(&quot;Training.Home&quot;)"
       shortcut="O"
       visible="perm.ABContact.viewsearch"/>
     <Tab
       action="ContactTabForward.go()"
       id="ContactTab"
-      label="DisplayKey.get(&quot;Training.Contact&quot;)">
+      label="DisplayKey.get(&quot;Training.ContactHistory&quot;)">
       <MenuItemIterator
         elementName="viewedContact"
         value="trainingapp.base.RecentlyViewedContactUtil.lastViewedContactList(User.util.getCurrentUser())"
