@@ -46,6 +46,11 @@
         value="anABContact.Coverable.CoverableCost"
         valueType="java.lang.Integer"
         visible="if(anABContact.Coverable.TypeCoverable != null){return true}else{return false}"/>
+      <TextInput
+        boldValue="true"
+        id="ifnocoverage"
+        value="&quot;No existe bien asignado a usuario&quot;"
+        visible="if(anABContact.Coverable.TypeCoverable == null){return true}else{return false}"/>
       <InputDivider/>
       <TextInput
         editable="true"

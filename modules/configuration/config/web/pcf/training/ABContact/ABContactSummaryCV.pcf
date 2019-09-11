@@ -186,12 +186,61 @@
             visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}">
             <PostOnChange/>
           </BooleanRadioInput>
+          <Label
+            label="&quot;Coberturas Para Auto&quot;"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="DamageAgainstOthersID"
+            label="DisplayKey.get(&quot;Contact.DamageAgainstOthers&quot;)"
+            value="anABContact.Poliza.CoverageExt.DamageAgainstOthers"
+            valueType="java.lang.Boolean "
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="CrushesID"
+            label="DisplayKey.get(&quot;Contact.Crushes&quot;)"
+            value="anABContact.Poliza.CoverageExt.Crushes"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="AccidentsID"
+            label="DisplayKey.get(&quot;Contact.Accidents&quot;)"
+            value="anABContact.Poliza.CoverageExt.Accidents"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="WinterTiresID"
+            label="DisplayKey.get(&quot;Contact.WinterTires&quot;)"
+            value="anABContact.Poliza.CoverageExt.WinterTires"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
+          <BooleanRadioInput
+            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
+            editable="true "
+            id="ElectricalSystemsID"
+            label="DisplayKey.get(&quot;Contact.ElectricalSytems&quot;)"
+            value="anABContact.Poliza.CoverageExt.ElectricalSystems"
+            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
+            <PostOnChange/>
+          </BooleanRadioInput>
         </InputColumn>
         <InputColumn>
           <Label
             id="kcdnckl"
             label="&quot;Porcentajes de Cobertura&quot;"
-            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
+            visible="true"/>
           <InputDivider
             visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Dwelling&quot;){return true}else{return false}"/>
           <TextInput
@@ -297,60 +346,6 @@
       </DetailViewPanel>
       <DetailViewPanel>
         <InputColumn>
-          <Label
-            label="&quot;Coberturas Para Auto&quot;"
-            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}"/>
-          <BooleanRadioInput
-            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
-            editable="true "
-            id="DamageAgainstOthersID"
-            label="DisplayKey.get(&quot;Contact.DamageAgainstOthers&quot;)"
-            value="anABContact.Poliza.CoverageExt.DamageAgainstOthers"
-            valueType="java.lang.Boolean "
-            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
-            <PostOnChange/>
-          </BooleanRadioInput>
-          <BooleanRadioInput
-            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
-            editable="true "
-            id="CrushesID"
-            label="DisplayKey.get(&quot;Contact.Crushes&quot;)"
-            value="anABContact.Poliza.CoverageExt.Crushes"
-            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
-            <PostOnChange/>
-          </BooleanRadioInput>
-          <BooleanRadioInput
-            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
-            editable="true "
-            id="AccidentsID"
-            label="DisplayKey.get(&quot;Contact.Accidents&quot;)"
-            value="anABContact.Poliza.CoverageExt.Accidents"
-            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
-            <PostOnChange/>
-          </BooleanRadioInput>
-          <BooleanRadioInput
-            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
-            editable="true "
-            id="WinterTiresID"
-            label="DisplayKey.get(&quot;Contact.WinterTires&quot;)"
-            value="anABContact.Poliza.CoverageExt.WinterTires"
-            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
-            <PostOnChange/>
-          </BooleanRadioInput>
-          <BooleanRadioInput
-            available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
-            editable="true "
-            id="ElectricalSystemsID"
-            label="DisplayKey.get(&quot;Contact.ElectricalSytems&quot;)"
-            value="anABContact.Poliza.CoverageExt.ElectricalSystems"
-            visible="if((anABContact.Coverable.TypeCoverable as String) == &quot;Auto&quot;){return true}else{return false}">
-            <PostOnChange/>
-          </BooleanRadioInput>
-          <Label/>
-        </InputColumn>
-      </DetailViewPanel>
-      <DetailViewPanel>
-        <InputColumn>
           <TextInput
             formatType="currency"
             id="PrimaEnhancement"
@@ -363,13 +358,13 @@
             id="btnActivar"
             label="DisplayKey.get(&quot;Contact.Activate&quot;)"
             value="DisplayKey.get(&quot;Contact.Activate&quot;)//anABContact.Poliza.Activada as String"
-            visible="if(InEditMode){if(anABContact.Poliza.Activada == true || anABContact.Poliza.FechaEfectiva == null ||anABContact.Coverable.CoverableCost == null || anABContact.CreditScore &lt;= 300 || anABContact.CalculoPrima == &quot;0&quot; ){return false}else{return true}}else{return false}"></ButtonInput>
+            visible="if(InEditMode){if(anABContact.Poliza.Activada == true || anABContact.Poliza.FechaEfectiva == null ||anABContact.Coverable.CoverableCost == null || anABContact.CreditScore &lt;= 300 || anABContact.CalculoPrima == &quot;0&quot; || anABContact.activarPolizaVisible(anABContact) == false){return false}else{return true}}else{return false}"></ButtonInput>
           <ButtonInput
             action="anABContact.desactivarPoliza()"
             id="btnDesactivar"
             label="DisplayKey.get(&quot;Contact.Disable&quot;)"
             value="DisplayKey.get(&quot;Contact.Disable&quot;) //anABContact.Poliza.Activada as String"
-            visible="if(InEditMode){if(anABContact.Poliza.Activada != true || anABContact.Coverable.CoverableCost == null || anABContact.CreditScore &lt;= 300){return false}else{return true}}else{return false}"/>
+            visible="if(InEditMode){if(anABContact.desactivarPolizaVisible(anABContact) == false){return false}else{return true}}else{return false}"/>
         </InputColumn>
       </DetailViewPanel>
     </Card>

@@ -124,12 +124,40 @@ enhancement ABContactEnhancement : ABContact {
       return primaTotalCompany as Integer as String
       //}
     }
-    return "Unknown"
+    return "El valor no se puede calcular"
   }
+
 
 
   function activarPoliza() : void {
     this.Poliza.Activada = true
+  }
+
+  function activarPolizaVisible(anABContact : ABContact) : boolean{
+        if (anABContact.Coverable.Brand != null && anABContact.Coverable.Color != null && anABContact.Coverable.Year != null && anABContact.Coverable.Model != null && anABContact.Coverable.WinterTires != null && anABContact.Coverable.LicensePlate != null)
+        {
+          return true
+        }
+        else if(anABContact.Coverable.ConstructionMaterial != null && anABContact.Coverable.HeatingType != null && anABContact.Coverable.Meters != null && anABContact.Coverable.RoofType != null && anABContact.Coverable.OccupationType != null)
+        {
+          return true
+        }
+        else
+        {
+          return false
+        }
+  }
+
+  function desactivarPolizaVisible(anABContact : ABContact) : boolean
+  {
+    if (anABContact.Poliza.Activada != true || anABContact.Coverable.CoverableCost == null || anABContact.Poliza.Prima == 0)
+    {
+      return false
+    }
+    else
+    {
+      return true
+    }
   }
 
   function desactivarPoliza() : void {
