@@ -52,7 +52,17 @@
       id="Coverables"
       title="DisplayKey.get(&quot;Proyecto.Coverable&quot;)">
       <PanelRef
+        available="if(anABContact.Poliza.Activada != true){return true}else{return false}"
         def="ABContactCoverableDV(anABContact)"/>
+      <DetailViewPanel>
+        <InputColumn>
+          <ButtonInput
+            action="anABContact.eliminarCoverable()"
+            id="btnEliminarCoverable"
+            value="DisplayKey.get(&quot;Contact.DeleteCoverable&quot;)"
+            visible="if(InEditMode){if(anABContact.Poliza.Activada == true || anABContact.Coverable.TypeCoverable == null){return false}else{return true}}else{return false}"/>
+        </InputColumn>
+      </DetailViewPanel>
     </Card>
     <Card
       id="PolizaID"

@@ -31,7 +31,7 @@
       editable="nameOwner.isEditable(gw.api.name.NameOwnerFieldId.FIRSTNAME)"
       id="FirstName"
       label="nameOwner.FirstNamePhoneticLabel"
-      required="nameOwner.isRequired(gw.api.name.NameOwnerFieldId.FIRSTNAME)"
+      required="false"
       value="nameOwner.PersonName.FirstName"
       visible="nameOwner.isVisible(gw.api.name.NameOwnerFieldId.FIRSTNAME)"/>
     <TextInput

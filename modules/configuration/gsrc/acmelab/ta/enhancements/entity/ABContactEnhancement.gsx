@@ -136,6 +136,11 @@ enhancement ABContactEnhancement : ABContact {
       this.Poliza.Activada = false
   }
 
+  function eliminarCoverable() : void {
+    this.Coverable.TypeCoverable = null
+    this.Coverable.CoverableCost = null
+  }
+
   function mostrarLabel(variable: boolean, location: LocationUtil) : void{
     location.addRequestScopedInfoMessage("Prueba")
   }
