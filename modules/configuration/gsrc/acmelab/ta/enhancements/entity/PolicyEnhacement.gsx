@@ -16,4 +16,12 @@ enhancement PolicyEnhacement : Policy_Ext {
       return anABContact.Poliza.Numero
     }
   }
+
+   function IsPolicyEffective (): Boolean{
+
+    if(this.FechaEfectiva.before(Date.CurrentDate) || this.FechaEfectiva.equals(Date.CurrentDate)){
+      return true
+    }
+    else return false
+  }
 }
