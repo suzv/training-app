@@ -83,7 +83,7 @@
           <DateInput
             available="if(anABContact.Poliza.Activada == true){return false}else{return true}"
             editable="true "
-            id="EffectiveDAtePolicy"
+            id="EffectiveDatePolicy"
             label="DisplayKey.get(&quot;Contact.EffectiveDate&quot;)"
             value="anABContact.Poliza.FechaEfectiva">
             <PostOnChange/>
@@ -364,7 +364,7 @@
             id="btnDesactivar"
             label="DisplayKey.get(&quot;Contact.Disable&quot;)"
             value="DisplayKey.get(&quot;Contact.Disable&quot;) //anABContact.Poliza.Activada as String"
-            visible="if(InEditMode){if(anABContact.desactivarPolizaVisible(anABContact) == false){return false}else{return true}}else{return false}"/>
+            visible="if(InEditMode){if(anABContact.desactivarPolizaVisible(anABContact) == false || anABContact.Poliza.IsPolicyEffective() == true){return false}else{return true}}else{return false}"/>
         </InputColumn>
       </DetailViewPanel>
     </Card>
