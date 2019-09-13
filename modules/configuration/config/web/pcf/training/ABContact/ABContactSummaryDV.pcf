@@ -22,7 +22,7 @@
       <TextInput
         editable="true"
         id="NameC"
-        label="DisplayKey.get(&quot;Training.Name&quot;)"
+        label="DisplayKey.get(&quot;Contact.CompanyName&quot;)"
         required="true"
         value="(anABContact as ABCompany).Name"
         visible="if(InEditMode &amp;&amp; anABContact typeis ABCompany){return true}else{return false}"/>
@@ -55,7 +55,7 @@
         required="true"
         validationExpression="if (acmelab.ta.webservice.contact.RutValidation.validate(anABContact.RUT)) {if (anABContact.isDuplicate(anABContact.RUT) == false){return null} else {return &quot;El RUT ingresado ya existe.&quot;} } else return &quot;El RUT no es valido.&quot;"
         value="anABContact.RUT"
-        visible="if(anABContact.Nacionalidad == Nacionalidad.TC_CHILE){return true}else{return false}"/>
+        visible="if(anABContact.Nacionalidad == Nacionalidad.TC_CHILE || anABContact typeis ABCompany == true){return true}else{return false}"/>
       <TextInput
         id="ContactPassport"
         label="DisplayKey.get(&quot;Contact.Passport&quot;)"

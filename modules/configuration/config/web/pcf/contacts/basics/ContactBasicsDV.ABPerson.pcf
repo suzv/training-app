@@ -47,7 +47,7 @@
       <TypeKeyRadioInput
         editable="true"
         id="idNationality"
-        label="DisplayKey.get(&quot;Contact.Nationality&quot;)"
+        label="DisplayKey.get(&quot;Contact.Nationality2&quot;)"
         required="true"
         value="contact.Nacionalidad"
         valueType="typekey.Nacionalidad">

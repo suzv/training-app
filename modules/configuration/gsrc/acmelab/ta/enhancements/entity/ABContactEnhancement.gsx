@@ -161,7 +161,8 @@ enhancement ABContactEnhancement : ABContact {
   }
 
   function desactivarPoliza() : void {
-      this.Poliza.Activada = false
+
+    this.Poliza.Activada = false
   }
 
   function eliminarCoverable() : void {
